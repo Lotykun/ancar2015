@@ -1,0 +1,239 @@
+/* This code is only meant for previewing your Reflow design. */
+
+/* MAKETACION GENERAL*/
+.primaryContainer {
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100%;
+    width: 95%;
+    /*background-color: rgb(0, 0, 0);*/
+}
+
+body {
+    background-image:-webkit-linear-gradient(315deg,rgb(42,204,79) 0%,rgb(0,0,0) 100%);
+	background-image:-moz-linear-gradient(315deg,rgb(42,204,79) 0%,rgb(0,0,0) 100%);
+	background-image:linear-gradient(315deg,rgb(42,204,79) 0%,rgb(0,0,0) 100%);
+    background-attachment: fixed;
+    background-size: auto;
+    background-position: 0% 0%;
+    background-repeat: repeat repeat;
+}
+
+#header {
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 5px;
+    clear: none;
+    width: 100%;
+    min-width: 0px;
+}
+
+#main {
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 5px;
+    clear: both;
+    width: 100%;
+    min-width: 0px;
+}
+
+#footer {
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 30px;
+    clear: both;
+    width: 100%;
+    min-width: 0px;
+}
+
+#logo {
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    width: 250px;
+}
+#fecha_usuario {
+    float: right;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    width: 250px;
+}
+.card {
+    float: none;
+    height: auto;
+	min-height:200px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:15px;
+    clear: none;
+    width: 300px;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    box-shadow: rgb(0, 0, 0) 8px 11px 7px 2px;
+    padding-top: 20px;
+	padding-bottom: 20px;
+}
+.card .title_card {
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+	padding-bottom: 5px;
+	border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(229, 229, 229);
+}
+.card .container_card {
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 5px;
+    clear: none;
+    width: 100%;
+	padding:5px;
+}
+.container_card .tabla_container_card{
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+}
+.tabla_container_card .fila_container_card{
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+	margin-bottom:3px;
+}
+.tabla_container_card .fila_container_card_mvp{
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+	margin-bottom:3px;
+}
+.tabla_container_card .celdabutton_container_card{
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+	clear: none;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:10px;
+	width: 80px;
+}
+.tabla_container_card .celdalabel_container_card{
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+	margin-right:5%;
+    clear: none;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:10px;
+	width: auto;
+	min-width:80px;
+}
+/* MAKETACION GENERAL*/
+/* TEXTOS */
+.text_title_card {
+	font-family: arial;
+    font-size: 20px;
+    text-align: left;
+    font-weight: normal;
+    line-height: 20px;
+    word-wrap: break-word;
+    color: rgb(119, 119, 119);
+	padding-left:10px
+}
+.textnombre_container_card {
+	font-family: arial;
+    font-size: 15px;
+    text-align:left;
+    font-weight: normal;
+    line-height: 15px;
+    word-wrap: break-word;
+    color: rgb(0, 0, 0);
+}
+.textdorsal_container_card {
+	font-family: arial;
+    font-size: 15px;
+    text-align:center;
+    font-weight: normal;
+    line-height: 15px;
+    word-wrap: break-word;
+    color: rgb(0, 0, 0);
+}
+.textname_container_card {
+	font-family: arial;
+    font-size: 10px;
+    text-align:left;
+    font-weight: normal;
+    line-height: 10px;
+    word-wrap: break-word;
+    color: rgb(0, 0, 0);
+}
+.textposicion_container_card {
+	font-family: arial;
+    font-size: 10px;
+    text-align:center;
+    font-weight: normal;
+    line-height: 10px;
+    word-wrap: break-word;
+    color: rgb(0, 0, 0);
+}
+.text_footer {
+    font-family: arial;
+    font-size: 10px;
+    text-align: center;
+    font-weight: normal;
+    line-height: 10px;
+    word-wrap: break-word;
+    color: rgb(255, 255, 255);
+}
+.text_fecha_usuario {
+    font-family: arial;
+    font-size: 15px;
+    text-align: right;
+    font-weight: bold;
+    line-height: 15px;
+    word-wrap: break-word;
+    color: rgb(255, 255, 255);
+}
+/* TEXTOS */
+/* ENLACES */
+.enlace_simple {
+	font-family: arial;
+    font-size: 15px;
+    text-align: right;
+    font-weight: bold;
+    line-height: 15px;
+    word-wrap: break-word;
+	text-decoration:none;
+}
+.enlace_desconectar {
+	display:block;
+}
+/* ENLACES */
+

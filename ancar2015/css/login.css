@@ -1,0 +1,28 @@
+/* This code is only meant for previewing your Reflow design. */
+/* MAKETACION ESPECIFICA DE PAGINA*/
+.tabla_container_card .celdainput_container_card{
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+	padding-top:3px;
+	padding-bottom:3px;
+	width: auto;
+}
+
+/* MAKETACION ESPECIFICA DE PAGINA*/
+/* TEXTOS*/
+/*.text_error_sesion {
+	font-family: arial;
+    font-size: 15px;
+    text-align: left;
+    font-weight: normal;
+    line-height: 15px;
+    word-wrap: break-word;
+    color: rgb(0, 0, 0);
+	margin-bottom:5px;
+}*/
+/* TEXTOS*/
+
+

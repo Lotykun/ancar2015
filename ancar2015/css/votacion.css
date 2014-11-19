@@ -1,0 +1,145 @@
+/* This code is only meant for previewing your Reflow design. */
+/* MAKETACION ESPECIFICA DE PAGINA*/
+.tabla_container_card .celdavotacion_container_card{
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+	padding-top:0px;
+	padding-bottom:3px;
+	width: auto;
+}
+.fila_container_card .celdanombre_container_card{
+    float: left;
+    height: auto;
+    margin-left: 2px;
+    margin-top: 0px;
+    clear: none;
+    padding-top:5px;
+    padding-bottom:5px;
+    background-color:rgb(204,204,204);
+    width: 123px;
+}
+.fila_container_card .celdadorsal_container_card{
+    float: left;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    padding-top:5px;
+    padding-bottom:5px;
+    background-color:rgb(204,204,204);
+    width: 15px;
+}
+.fila_container_card_mvp .celdadatos_container_card{
+    float: left;
+    height: auto;
+    margin-left: 2px;
+    margin-top: 0px;
+    clear: none;
+    padding-top:5px;
+    padding-bottom:5px;
+    background-color:rgb(42,204,79);
+    width: 28px;
+}
+.fila_container_card_mvp .celdanombre_container_card{
+    float: left;
+    height: auto;
+    margin-left: 2px;
+    margin-top: 0px;
+    clear: none;
+    padding-top:5px;
+    padding-bottom:5px;
+    background-color:rgb(42,204,79);
+    width: 123px;
+}
+.fila_container_card_mvp .celdadorsal_container_card{
+    float: left;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    padding-top:5px;
+    padding-bottom:5px;
+    background-color:rgb(42,204,79);
+    width: 15px;
+}
+.fila_container_card .celdadatos_container_card{
+    float: left;
+    height: auto;
+    margin-left: 2px;
+    margin-top: 0px;
+    clear: none;
+    padding-top:5px;
+    padding-bottom:5px;
+    background-color:rgb(204,204,204);
+    width: 28px;
+}
+.tabla_container_card .celdacambio_container_card{
+    float: left;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    width: auto;
+    padding-left: 40px;
+}
+.tabla_container_card .celdatitulonombre_container_card{
+    float: left;
+    height: 1px;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    width: 122px;
+}
+.tabla_container_card .celdatitulodatos_container_card{
+    float: left;
+    height: auto;
+    margin-left: 2px;
+    margin-top: 0px;
+    clear: none;
+    width: 28px;
+}
+.tabla_container_card .celdatitulodorsal_container_card{
+    float: left;
+    height: 1px;
+    margin-left: 2px;
+    margin-top: 0px;
+    clear: none;
+    width: 15px;
+}
+/* MAKETACION ESPECIFICA DE PAGINA*/
+/* TEXTOS*/
+.textvotacion_container_card {
+    font-family: arial;
+    font-size: 10px;
+    text-align:center;
+    font-weight: normal;
+    line-height: 10px;
+    word-wrap: break-word;
+    color: rgb(0, 0, 0);
+}
+.texttitulodatos_container_card{
+    font-family: arial;
+    font-size: 12px;
+    text-align:center;
+    font-weight: normal;
+    line-height: 11px;
+    word-wrap: break-word;
+    color: rgb(0, 0, 0);
+}
+.textopcion_container_card {
+	font-family: arial;
+    font-size: 13px;
+    text-align:left;
+    font-weight: bold;
+    line-height: 13px;
+    word-wrap: break-word;
+    color: rgb(0, 0, 0);
+    
+}
+/* TEXTOS*/
+
+
+

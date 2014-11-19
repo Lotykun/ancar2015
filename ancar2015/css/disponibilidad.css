@@ -1,0 +1,49 @@
+/* This code is only meant for previewing your Reflow design. */
+/* MAKETACION ESPECIFICA DE PAGINA*/
+.tabla_container_card .celdadisponibilidad_container_card{
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+	padding-top:0px;
+	padding-bottom:3px;
+	width: auto;
+}
+.tabla_container_card .celdatimedown_container_card{
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+	padding-top:0px;
+	padding-bottom:3px;
+	width: auto;
+}
+.button_disponiblilidad{
+    width: 70px;
+}
+/* MAKETACION ESPECIFICA DE PAGINA*/
+/* TEXTOS*/
+.textdisponibilidad_container_card {
+	font-family: arial;
+    font-size: 12px;
+    text-align:left;
+    font-weight: normal;
+    line-height: 11px;
+    word-wrap: break-word;
+    color: rgb(0, 0, 0);
+}
+.textinstrucciones_container_card {
+	font-family: arial;
+    font-size: 10px;
+    text-align:left;
+    font-weight: normal;
+    line-height: 10px;
+    word-wrap: break-word;
+    color: rgb(0, 0, 0);
+}
+/* TEXTOS*/
+
+
+
