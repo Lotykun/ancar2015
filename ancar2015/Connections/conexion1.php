@@ -7,7 +7,7 @@ function conectarBBDD (){
     $hostname_conexion1 = "localhost";
     $database_conexion1 = "ancar2015";
     $username_conexion1 = "root";
-    $password_conexion1 = "913004560";
+    $password_conexion1 = "*********";
     $conexion1 = mysql_pconnect($hostname_conexion1, $username_conexion1, $password_conexion1) or trigger_error(mysql_error(),E_USER_ERROR);
     mysql_query("SET NAMES 'utf8'");
     mysql_select_db($database_conexion1, $conexion1);
