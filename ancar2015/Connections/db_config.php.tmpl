@@ -1,0 +1,17 @@
+<?php
+// Overwrite these variables with your DB configuration values
+$host = "host";
+$db = "database";
+$user = "user";
+$password = "password";
+
+function getDBConfig() {
+
+	return [
+	"host" => $GLOBALS['host'],
+	"db" => $GLOBALS['db'],
+	"user" => $GLOBALS['user'],
+	"password" => $GLOBALS['password'],
+	];
+}
+?>

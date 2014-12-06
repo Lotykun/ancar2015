@@ -1,16 +1,14 @@
+<?php require_once('db_config.php');?>
 <?php
 # FileName="Connection_php_mysql.htm"
 # Type="MYSQL"
 # HTTP="true"
 
 function conectarBBDD (){
-    $hostname_conexion1 = "hostname";
-    $database_conexion1 = "db_name";
-    $username_conexion1 = "username";
-    $password_conexion1 = "password";
-    $conexion1 = mysql_pconnect($hostname_conexion1, $username_conexion1, $password_conexion1) or trigger_error(mysql_error(),E_USER_ERROR);
+$db_config = getDBConfig();
+    $conexion1 = mysql_pconnect($db_config['host'], $db_config['user'], $db_config['password']) or trigger_error(mysql_error(),E_USER_ERROR);
     mysql_query("SET NAMES 'utf8'");
-    mysql_select_db($database_conexion1, $conexion1);
+    mysql_select_db($db_config['db'], $conexion1);
 
     return $conexion1;
 }
