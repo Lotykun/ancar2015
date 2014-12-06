@@ -1,3 +1,4 @@
+<?php require_once('db_config.php'); ?>
 <?php
 # FileName="Connection_php_mysql.htm"
 # Type="MYSQL"
