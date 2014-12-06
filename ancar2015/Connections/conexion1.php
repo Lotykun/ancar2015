@@ -9,6 +9,7 @@ function conectarBBDD (){
     error_reporting(E_ALL ^ E_DEPRECATED);
 
     $hostname_conexion1 = "localhost";
+    $hostname_conexion2 = "localhost2";
     $database_conexion1 = "ancar2015";
     $username_conexion1 = "root";
     $password_conexion1 = "913004560";
