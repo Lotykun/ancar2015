@@ -5,7 +5,7 @@
 
 function conectarBBDD (){
 
-	error_reporting(E_ALL ^ E_DEPRECATED);	
+    error_reporting(E_ALL ^ E_DEPRECATED);	
 
     $hostname_conexion1 = "localhost";
     $database_conexion1 = "ancar2015";
