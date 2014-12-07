@@ -278,7 +278,7 @@ function aGetMensajeError($title,$mensaje,$titlelink,$link){
     <div class="clearfix card" style="min-height: 150px">
         <div class="clearfix title_card">
             <p class="clearfix text_title_card"><?php echo $title ?></p>
-        </div>';
+        </div>
         <div class="clearfix container_card">';
             <p class="clearfix text_error_sesion"><?php echo $mensaje ?></p>';
             <?php    
@@ -286,8 +286,8 @@ function aGetMensajeError($title,$mensaje,$titlelink,$link){
                     echo '<a class="enlace_simple" href="'.$link.'">'.$titlelink.'!--></a>';
                 }
             ?>    
-        </div>';
-    </div>';
+        </div>
+    </div>
 <?php    
 }
 function aGetFormLogin(){
@@ -412,7 +412,7 @@ function aGetScriptanimacioncolor(){
         }   
         animateDivers();
     });
-    </script>';
+    </script>
 <?php    
 }
 function aGetSeleccionarDisponibilidad($partido){
