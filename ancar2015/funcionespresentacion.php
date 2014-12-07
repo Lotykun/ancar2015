@@ -291,87 +291,77 @@ function aGetMensajeError($title,$mensaje,$titlelink,$link){
 <?php    
 }
 function aGetFormLogin(){
-
-    echo '<div class="clearfix card">';
-    echo '<div class="clearfix title_card">';
-    echo '<p class="clearfix text_title_card">LOGIN</p>';
-    echo '</div>';
-    echo '<div class="clearfix container_card">';
-    echo '<div class="clearfix tabla_container_card">';
-    echo '<form id="form1" name="form1" method="POST" action="login.php">';
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdalabel_container_card">';
-    echo '<p class="clearfix textnombre_container_card">Usuario:</p>';
-    echo '</div>';
-    echo '<div class="clearfix celdainput_container_card">';
-    echo '<p class="clearfix textdorsal_container_card">';
-    echo '<input type="text" name="tusername" id="tusername" />';
-    echo '</p>';
-    echo '</div>';
-    echo '</div>';
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdalabel_container_card">';
-    echo '<p class="clearfix textnombre_container_card">Password:</p>';
-    echo '</div>';
-    echo '<div class="clearfix celdainput_container_card">';
-    echo '<p class="clearfix textdorsal_container_card">';
-    echo '<input type="password" name="tpassword" id="tpassword" />';
-    echo '</p>';
-    echo '</div>';
-    echo '</div>';
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdabutton_container_card">';
-    echo '<p class="clearfix textnombre_container_card">';
-    echo '<input type="submit" name="tbutton" id="tbutton" value="Enviar" />';
-    echo '</p>';
-    echo '</div>';
-    echo '</div>';
-    echo '</form>';
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
+?>
+    <div class="clearfix card">
+        <div class="clearfix title_card">
+            <p class="clearfix text_title_card">LOGIN</p>
+        </div>
+        <div class="clearfix container_card">
+            <div class="clearfix tabla_container_card">
+                <form id="form1" name="form1" method="POST" action="login.php">
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdalabel_container_card">
+                            <p class="clearfix textnombre_container_card">Usuario:</p>
+                        </div>
+                        <div class="clearfix celdainput_container_card">
+                            <p class="clearfix textdorsal_container_card">
+                                <input type="text" name="tusername" id="tusername" />
+                            </p>
+                        </div>
+                    </div>
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdalabel_container_card">
+                            <p class="clearfix textnombre_container_card">Password:</p>
+                        </div>
+                        <div class="clearfix celdainput_container_card">
+                            <p class="clearfix textdorsal_container_card">
+                                <input type="password" name="tpassword" id="tpassword" />
+                            </p>
+                        </div>
+                    </div>
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdabutton_container_card">
+                            <p class="clearfix textnombre_container_card">
+                                <input type="submit" name="tbutton" id="tbutton" value="Enviar" />
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php
 }
 function aGetMain($admin){
-    echo '<div class="clearfix card">';
-    echo '<div class="clearfix title_card">';
-    echo '<p class="clearfix text_title_card">MENU PRINCIPAL</p>	';
-    echo '</div>';
-    echo '<div class="clearfix container_card">';
-    echo '<div class="clearfix tabla_container_card">';
-    /*echo '<div class="clearfix fila_container_card">';
-    echo '<a class="enlace_simple" href="seleccionardorsal.php">Seleccionar Dorsal--></a><br />';
-    echo '</div>';
-    echo '<div class="clearfix fila_container_card">';
-    echo '<a class="enlace_simple" href="seleccionarposicion.php">Seleccionar Posicion--></a>';
-    echo '</div>';*/
-    /*echo '<div class="clearfix fila_container_card">';
-    echo '<a class="enlace_simple" href="encuesta.php">Como va la Encuesta?--></a>';
-    echo '<p class="clearfix text_temporal">Como va la Encuesta?--></p>';
-    echo '</div>';*/
-    /*echo '<div class="clearfix fila_container_card">';
-    echo '<a id="nuevo" class="enlace_simple" href="disponibilidad.php">Estoy Disponible?--></a>';
-    echo '</div>';*/
-    echo '<div class="clearfix fila_container_card">';
-    echo '<a id=nuevo2 class="enlace_simple" href="votacion.php?idpartido=5">Votaciones Jornada 5--></a>';
-    echo '</div>';
-    echo '<div class="clearfix fila_container_card">';
-    echo '<a id=nuevo class="enlace_simple" href="votacion.php?idpartido=6">Votaciones Jornada 6--></a>';
-    echo '</div>';
-    echo '<div class="clearfix fila_container_card">';
-    echo '<a class="enlace_simple" href="votacion.php?idpartido=1">Datos Jornada 1--></a>';
-    echo '</div>';
-    echo '<div class="clearfix fila_container_card">';
-    echo '<a class="enlace_simple" href="votacion.php?idpartido=2">Datos Jornada 2--></a>';
-    echo '</div>';
-    echo '<div class="clearfix fila_container_card">';
-    echo '<a class="enlace_simple" href="votacion.php?idpartido=3">Datos Jornada 3--></a>';
-    echo '</div>';
-    echo '<div class="clearfix fila_container_card">';
-    echo '<a class="enlace_simple" href="votacion.php?idpartido=4">Datos Jornada 4--></a>';
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
+?>
+    <div class="clearfix card">
+        <div class="clearfix title_card">
+            <p class="clearfix text_title_card">MENU PRINCIPAL</p>
+        </div>
+        <div class="clearfix container_card">
+            <div class="clearfix tabla_container_card">
+                <div class="clearfix fila_container_card">
+                    <a id=nuevo2 class="enlace_simple" href="votacion.php?idpartido=5">Votaciones Jornada 5--></a>
+                </div>
+                <div class="clearfix fila_container_card">
+                    <a id=nuevo class="enlace_simple" href="votacion.php?idpartido=6">Votaciones Jornada 6--></a>
+                </div>
+                <div class="clearfix fila_container_card">
+                    <a class="enlace_simple" href="votacion.php?idpartido=1">Datos Jornada 1--></a>
+                </div>
+                <div class="clearfix fila_container_card">
+                    <a class="enlace_simple" href="votacion.php?idpartido=2">Datos Jornada 2--></a>
+                </div>
+                <div class="clearfix fila_container_card">
+                    <a class="enlace_simple" href="votacion.php?idpartido=3">Datos Jornada 3--></a>
+                </div>
+                <div class="clearfix fila_container_card">
+                    <a class="enlace_simple" href="votacion.php?idpartido=4">Datos Jornada 4--></a>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php    
 }
 function aGetScriptCountdown($fechapartido,$horapartido){
     $timestampstart=date("Y-m-j G:i:s");
@@ -384,119 +374,117 @@ function aGetScriptCountdown($fechapartido,$horapartido){
     $minutos=intval($tok);
     $dias=intval($time['dias']);
     $dias=$dias+1;
-    
-    echo '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>';
-    echo '<script src="assets/js/jquery.timeTo.min.js"></script>';
-    echo '<script>';
-    echo 'date = getRelativeDate('.$dias.','.$hora.','.$minutos.');';
+?>    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="assets/js/jquery.timeTo.min.js"></script>
+    <script>
+        date = getRelativeDate('.$dias.','.$hora.','.$minutos.');
+        date = getRelativeDate(<?php echo $dias ?>,<?php echo $hora ?>,<?php echo $minutos ?>);
     /*echo 'date = getRelativeDate(7,'.$hora.','.$minutos.');';*/
     /*echo 'document.getElementById("date-str").innerHTML = date.toString();';*/
 
-    echo '$("#countdown-3").timeTo({';
-    echo 'timeTo: date,';
-    echo 'displayDays: 2,';
-    echo 'theme: "black",';
-    echo 'displayCaptions: true,';
-    echo 'fontSize: 12,';
-    echo 'captionSize: 8';
-    echo '});';
+        $("#countdown-3").timeTo({
+            timeTo: date,
+            displayDays: 2,
+            theme: "black",
+            displayCaptions: true,
+            fontSize: 12,
+            captionSize: 8
+        });
 
-    echo 'function getRelativeDate(days, hours, minutes){';
-    echo 'var date = new Date((new Date()).getTime() + 60000 /* milisec */ * 60 /* minutes */ * 24 /* hours */ * days /* days */);';
-    echo 'date.setHours(hours || 0);';
-    echo 'date.setMinutes(minutes || 0);';
-    echo 'date.setSeconds(0);';
-    echo 'return date;';
-    echo '}';
-    echo '</script>';
+        function getRelativeDate(days, hours, minutes){
+            var date = new Date((new Date()).getTime() + 60000 /* milisec */ * 60 /* minutes */ * 24 /* hours */ * days /* days */);
+            date.setHours(hours || 0);
+            date.setMinutes(minutes || 0);
+            date.setSeconds(0);
+            return date;
+        }
+    </script>
+<?php    
 }
 function aGetScriptanimacioncolor(){
-    echo '<script>';
-    echo '$(document).ready(function() {';
-    echo 'function animateDivers() {';
-    echo '$("#nuevo").animate({"color":"#f00"},1000).animate({"color":"#00f"},1000, animateDivers);';
-    echo '$("#nuevo2").animate({"color":"#00f"},1000).animate({"color":"#0f0"},1000, animateDivers);';
-    echo '}';
-    echo 'animateDivers();';
-    echo '});';
-    echo '</script>';
+?>    
+    <script>
+    $(document).ready(function() {
+        function animateDivers() {
+            $("#nuevo").animate({"color":"#f00"},1000).animate({"color":"#00f"},1000, animateDivers);
+            $("#nuevo2").animate({"color":"#00f"},1000).animate({"color":"#0f0"},1000, animateDivers);
+        }   
+        animateDivers();
+    });
+    </script>';
+<?php    
 }
 function aGetSeleccionarDisponibilidad($partido){
     
     $row_reg = mysql_fetch_assoc($reg);
-    
-    echo '<div class="clearfix card">';
-    echo '<div class="clearfix title_card">';
-    echo '<p class="clearfix text_title_card">SELECCIONAR DISPONIBILIDAD</br><span style="font-weight: bold;">ANCAR-'.$partido['rival'].'</span></p>';
-    echo '</div>';
-    echo '<div class="clearfix container_card">';
-    echo '<div class="clearfix tabla_container_card">';
-    echo '<form id="form1" name="form1" method="POST" action="disponibilidad.php">';
-    
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdainstrucciones_container_card">';
-    echo '<p class="clearfix textinstrucciones_container_card"></br>Selecciona si estaras disponible o no, para el proximo partido.</br></br>AQUI NO HAY DEPENDES. O estas disponible o no lo estas.</br></br>Tienes hasta el viernes a las 15:00 para responder. Si no respondes, se asumirá que no estás disponible</br></br></p>';
-    echo '</div>';
-    echo '</div>';
-    
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdadisponibilidad_container_card">';
-    echo '<p class="clearfix textdisponibilidad_container_card">TIEMPO HASTA FIN DE CONVOCATORIA</p>';
-    echo '</div>';
-    echo '</div>';
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdadisponibilidad_container_card">';
-    echo '<div id="countdown-3"></div>';
-    echo '</div>';
-    echo '</div>';
-    
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdadisponibilidad_container_card">';
-    echo '<p class="clearfix textdisponibilidad_container_card">Dia: <span style="font-weight: bold;">'.$partido['fecha'].'</span></p>';
-    echo '</div>';
-    echo '</div>';
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdadisponibilidad_container_card">';
-    echo '<p class="clearfix textdisponibilidad_container_card">Hora: <span style="font-weight: bold;">'.$partido['hora'].'</span></p>';
-    echo '</div>';
-    echo '</div>';
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdadisponibilidad_container_card">';
-    echo '<p class="clearfix textdisponibilidad_container_card">Campo: <span style="font-weight: bold;">'.$partido['nombre'].'</span></p>';
-    echo '</div>';
-    echo '</div>';
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdadisponibilidad_container_card">';
-    echo '<p class="clearfix textdisponibilidad_container_card">Direccion: <span style="font-weight: bold;">'.$partido['direccion'].'</span></p>';
-    echo '</div>';
-    echo '</div>';
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdadisponibilidad_container_card">';
-    echo '<p class="clearfix textdisponibilidad_container_card">Link: ';
-    echo '<a href="'.$partido['linkmaps'].'">Google Maps:</a>';
-    echo '</p>';
-    echo '</div>';
-    echo '</div>';
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdadisponibilidad_container_card">';
-    echo '<p class="clearfix textdisponibilidad_container_card">Rival: <span style="font-weight: bold;">'.$partido['rival'].'</span></p>';
-    echo '</div>';
-    echo '</div>';
-    
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdabutton_container_card" style="width:200px;">';
-    echo '<p class="clearfix textnombre_container_card">';
-    echo '<input type="submit" name="tbutton1" style="float:left;" class="button_disponiblilidad" id="tbutton1" value="Si" />';
-    echo '<input type="submit" name="tbutton2" style="float:right;" class="button_disponiblilidad" id="tbutton2" value="No" />';
-    echo '</p>';
-    echo '</div>';
-    echo '</div>';
-    echo '<input type="hidden" name="MM_update" value="form1" />';
-    echo '</form>';
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
-    
+?>    
+    <div class="clearfix card">
+        <div class="clearfix title_card">
+            <p class="clearfix text_title_card">SELECCIONAR DISPONIBILIDAD</br><span style="font-weight: bold;">ANCAR-<?php echo $partido['rival'] ?></span></p>
+        </div>
+        <div class="clearfix container_card">
+            <div class="clearfix tabla_container_card">
+                <form id="form1" name="form1" method="POST" action="disponibilidad.php">    
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdainstrucciones_container_card">
+                            <p class="clearfix textinstrucciones_container_card"></br>Selecciona si estaras disponible o no, para el proximo partido.</br></br>AQUI NO HAY DEPENDES. O estas disponible o no lo estas.</br></br>Tienes hasta el viernes a las 15:00 para responder. Si no respondes, se asumirá que no estás disponible</br></br></p>
+                        </div>
+                    </div>    
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdadisponibilidad_container_card">
+                            <p class="clearfix textdisponibilidad_container_card">TIEMPO HASTA FIN DE CONVOCATORIA</p>
+                        </div>
+                    </div>
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdadisponibilidad_container_card">
+                            <div id="countdown-3"></div>
+                        </div>
+                    </div>    
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdadisponibilidad_container_card">
+                            <p class="clearfix textdisponibilidad_container_card">Dia: <span style="font-weight: bold;"><?php echo $partido['fecha']?></span></p>
+                        </div>
+                    </div>
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdadisponibilidad_container_card">
+                            <p class="clearfix textdisponibilidad_container_card">Hora: <span style="font-weight: bold;"><?php echo $partido['hora']?></span></p>
+                        </div>
+                    </div>
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdadisponibilidad_container_card">
+                            <p class="clearfix textdisponibilidad_container_card">Campo: <span style="font-weight: bold;"><?php echo $partido['nombre']?></span></p>
+                        </div>
+                    </div>
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdadisponibilidad_container_card">
+                            <p class="clearfix textdisponibilidad_container_card">Direccion: <span style="font-weight: bold;"><?php echo $partido['direccion']?></span></p>
+                        </div>
+                    </div>
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdadisponibilidad_container_card">
+                            <p class="clearfix textdisponibilidad_container_card">Link: <a href="<?php echo $partido['linkmaps'] ?>">Google Maps:</a></p>
+                        </div>
+                    </div>
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdadisponibilidad_container_card">
+                            <p class="clearfix textdisponibilidad_container_card">Rival: <span style="font-weight: bold;"><?php echo $partido['rival']?></span></p>
+                        </div>
+                    </div>    
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdabutton_container_card" style="width:200px;">
+                            <p class="clearfix textnombre_container_card">
+                                <input type="submit" name="tbutton1" style="float:left;" class="button_disponiblilidad" id="tbutton1" value="Si" />
+                                <input type="submit" name="tbutton2" style="float:right;" class="button_disponiblilidad" id="tbutton2" value="No" />
+                            </p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="MM_update" value="form1" />
+                </form>
+            </div>
+        </div>
+    </div>
+<?php   
 }
 function aGetVotacionesDelPartido($idjugador,$partido){
     
@@ -995,15 +983,16 @@ function aGetDatosPartido($partido,$idjugadormvp){
     echo '</div>';
 }
 function aGetFooter(){
-    echo '</div>';
-    echo '<div id="footer" class="clearfix">';
-    echo '<p class="text_footer">by © LOTY 2014, Lotybaink@hotmail.com</p>';
-    echo '</div>';
-    echo '</div>';
-    echo '</body>';
-    echo '</html>';
+?>    
+                </div>
+                <div id="footer" class="clearfix">
+                    <p class="text_footer">by © LOTY 2014, Lotybaink@hotmail.com</p>
+                </div>
+            </div>
+        </body>
+    </html>
+<?php    
 }
-
 ?>
 
 
