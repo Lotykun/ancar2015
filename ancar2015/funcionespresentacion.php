@@ -624,9 +624,15 @@ function aGetFichaDelPartido($partido,$cerrada){
                     <div class="clearfix celdadatos_container_card">
                         <p class="clearfix textvotacion_container_card"><?php echo $row_reg['TR']?></p>
                     </div>
+                    <?php
+                    if ($cerrada){
+                    ?>
                     <div class="clearfix celdadatos_container_card">
                         <p class="clearfix textvotacion_container_card"><?php echo number_format($row_reg['valoracion'],1)?></p>
                     </div>
+                    <?php
+                    }
+                    ?>
                 </div>
                 <?php
                     if ($row_reg['minutos']<90){  
@@ -675,9 +681,15 @@ function aGetFichaDelPartido($partido,$cerrada){
                     <div class="clearfix celdadatos_container_card">
                         <p class="clearfix textvotacion_container_card"><?php echo $row_reg['TR']?></p>
                     </div>
+                    <?php
+                    if ($cerrada){
+                    ?>
                     <div class="clearfix celdadatos_container_card">
                         <p class="clearfix textvotacion_container_card"><?php echo number_format($row_reg['valoracion'],1)?></p>
                     </div>
+                    <?php
+                    }
+                    ?>
                 </div>
                 <div class="clearfix fila_container_card">
                     <div class="clearfix celdacambio_container_card">
@@ -691,150 +703,6 @@ function aGetFichaDelPartido($partido,$cerrada){
         </div>
     </div>
 <?php    
-}
-function aGetFichaDelPartido2($partido){
-    $idpartido=$partido['idpartido'];
-    $titulares=  getTitularesPartido($idpartido);
-    $suplentes=  getSuplentesPartido($idpartido);
-    
-    $row_reg = mysql_fetch_assoc($titulares);
-    echo '<div class="clearfix card">';
-    echo '<div class="clearfix title_card">';
-    echo '<p class="clearfix text_title_card">FICHA DEL PARTIDO</br><span style="font-weight: bold;">ANCAR '.$partido['golesfavor'].' - '.$partido['golescontra'].' '.$partido['rival'].'</span></p>';
-    echo '</div>';
-    echo '<div class="clearfix container_card">';
-    echo '<div class="clearfix tabla_container_card">';
-    
-    echo '<div class="clearfix fila_container_card">';
-        echo '<div class="clearfix celdainstrucciones_container_card">';
-            echo '<p class="clearfix textinstrucciones_container_card">Fecha: <span style="font-weight: bold">'.$partido['fecha'].'</span></p>';
-        echo '</div>';
-    echo '</div>';
-    echo '<div class="clearfix fila_container_card">';
-        echo '<div class="clearfix celdainstrucciones_container_card">';
-            echo '<p class="clearfix textinstrucciones_container_card">Lugar: <span style="font-weight: bold">'.$partido['nombre'].'</span></p>';
-        echo '</div>';
-    echo '</div>';
-    
-    
-    echo '<div class="clearfix fila_container_card">';
-        echo '<div class="clearfix celdainstrucciones_container_card">';
-            echo '<p class="clearfix textinstrucciones_container_card">Titulares</p>';
-        echo '</div>';
-    echo '</div>';
-    
-    echo '<div class="clearfix fila_container_card">';
-        echo '<div class="clearfix celdatitulodorsal_container_card">';
-            /*echo '<p class="clearfix texttitulonombre_container_card">Jugaron el partido</p>';*/
-        echo '</div>';
-        echo '<div class="clearfix celdatitulonombre_container_card">';
-            /*echo '<p class="clearfix texttitulonombre_container_card">Jugaron el partido</p>';*/
-        echo '</div>';
-        echo '<div class="clearfix celdatitulodatos_container_card">';
-            echo '<p class="clearfix texttitulodatos_container_card">Gol</p>';
-        echo '</div>';
-        echo '<div class="clearfix celdatitulodatos_container_card">';
-            echo '<p class="clearfix texttitulodatos_container_card">Asis</p>';
-        echo '</div>';
-        echo '<div class="clearfix celdatitulodatos_container_card">';
-            echo '<p class="clearfix texttitulodatos_container_card">T.A.</p>';
-        echo '</div>';
-        echo '<div class="clearfix celdatitulodatos_container_card">';
-            echo '<p class="clearfix texttitulodatos_container_card">T.R.</p>';
-        echo '</div>';
-        /*echo '<div class="clearfix celdatitulodatos_container_card">';
-            echo '<p class="clearfix texttitulodatos_container_card">Nota</p>';
-        echo '</div>';*/
-    echo '</div>';
-    
-    do {
-    echo '<div class="clearfix fila_container_card">';
-        echo '<div class="clearfix celdadorsal_container_card">';
-            echo '<p class="clearfix textvotacion_container_card">'.$row_reg['dorsal'].'</p>';
-        echo '</div>';
-        echo '<div class="clearfix celdanombre_container_card">';
-            echo '<p class="clearfix textvotacion_container_card">'.$row_reg['nombre'].' '.$row_reg['apellidos'].'</p>';
-        echo '</div>';
-        
-        echo '<div class="clearfix celdadatos_container_card">';
-            if ($row_reg['esportero']){
-                echo '<p class="clearfix textvotacion_container_card">-'.$row_reg['goles'].'</p>';
-            }
-            else{
-                echo '<p class="clearfix textvotacion_container_card">'.$row_reg['goles'].'</p>';
-            }
-        echo '</div>';
-        
-        echo '<div class="clearfix celdadatos_container_card">';
-            echo '<p class="clearfix textvotacion_container_card">'.$row_reg['asistencias'].'</p>';
-        echo '</div>';
-        echo '<div class="clearfix celdadatos_container_card">';
-            echo '<p class="clearfix textvotacion_container_card">'.$row_reg['TA'].'</p>';
-        echo '</div>';
-        echo '<div class="clearfix celdadatos_container_card">';
-            echo '<p class="clearfix textvotacion_container_card">'.$row_reg['TR'].'</p>';
-        echo '</div>';
-        /*echo '<div class="clearfix celdadatos_container_card">';
-            echo '<p class="clearfix textvotacion_container_card">'.$row_reg['valoracion'].'</p>';
-        echo '</div>';*/
-    echo '</div>';
-    if ($row_reg['minutos']<90){
-        echo '<div class="clearfix fila_container_card">';
-        echo '<div class="clearfix celdacambio_container_card">';
-            echo '<p class="clearfix textvotacion_container_card">--> Sale Minuto '.$row_reg['minutos'].'</p>';
-        echo '</div>';
-        echo '</div>';
-    }
-    } while ($row_reg = mysql_fetch_assoc($titulares));
-    
-    echo '<div class="clearfix fila_container_card">';
-        echo '<div class="clearfix celdainstrucciones_container_card">';
-            echo '<p class="clearfix textinstrucciones_container_card">Suplentes</p>';
-        echo '</div>';
-    echo '</div>';
-    $row_reg = mysql_fetch_assoc($suplentes);
-    do {
-    echo '<div class="clearfix fila_container_card">';
-        echo '<div class="clearfix celdadorsal_container_card">';
-            echo '<p class="clearfix textvotacion_container_card">'.$row_reg['dorsal'].'</p>';
-        echo '</div>';
-        echo '<div class="clearfix celdanombre_container_card">';
-            echo '<p class="clearfix textvotacion_container_card">'.$row_reg['nombre'].' '.$row_reg['apellidos'].'</p>';
-        echo '</div>';
-        
-        echo '<div class="clearfix celdadatos_container_card">';
-            if ($row_reg['esportero']){
-                echo '<p class="clearfix textvotacion_container_card">-'.$row_reg['goles'].'</p>';
-            }
-            else{
-                echo '<p class="clearfix textvotacion_container_card">'.$row_reg['goles'].'</p>';
-            }
-        echo '</div>';
-        
-        echo '<div class="clearfix celdadatos_container_card">';
-            echo '<p class="clearfix textvotacion_container_card">'.$row_reg['asistencias'].'</p>';
-        echo '</div>';
-        echo '<div class="clearfix celdadatos_container_card">';
-            echo '<p class="clearfix textvotacion_container_card">'.$row_reg['TA'].'</p>';
-        echo '</div>';
-        echo '<div class="clearfix celdadatos_container_card">';
-            echo '<p class="clearfix textvotacion_container_card">'.$row_reg['TR'].'</p>';
-        echo '</div>';
-        /*echo '<div class="clearfix celdadatos_container_card">';
-            echo '<p class="clearfix textvotacion_container_card">'.$row_reg['valoracion'].'</p>';
-        echo '</div>';*/
-    echo '</div>';
-    echo '<div class="clearfix fila_container_card">';
-        echo '<div class="clearfix celdacambio_container_card">';
-            echo '<p class="clearfix textvotacion_container_card"><-- Entra Minuto '.(90-$row_reg['minutos']).'</p>';
-        echo '</div>';
-    echo '</div>';
-    } while ($row_reg = mysql_fetch_assoc($suplentes));
-    
-    
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
 }
 function aGetDatosPartido($partido,$idjugadormvp){
     $idpartido=$partido['idpartido'];
