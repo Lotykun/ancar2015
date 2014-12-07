@@ -1,17 +1,18 @@
 <?php
-// Overwrite these variables with your DB configuration values
-$host = "host";
-$db = "database";
-$user = "user";
-$password = "password";
+# FileName="Connection_php_mysql.htm"
+# Type="MYSQL"
+# HTTP="true"
 
-function getDBConfig() {
+function conectarBBDD (){
 
-	return [
-	"host" => $GLOBALS['host'],
-	"db" => $GLOBALS['db'],
-	"user" => $GLOBALS['user'],
-	"password" => $GLOBALS['password'],
-	];
+    $hostname_conexion1 = "*********";
+    $database_conexion1 = "*********";
+    $username_conexion1 = "*********";
+    $password_conexion1 = "**********";
+    $conexion1 = mysql_pconnect($hostname_conexion1, $username_conexion1, $password_conexion1) or trigger_error(mysql_error(),E_USER_ERROR);
+    mysql_query("SET NAMES 'utf8'");
+    mysql_select_db($database_conexion1, $conexion1);
+    
+    return $conexion1;
 }
 ?>
