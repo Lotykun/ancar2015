@@ -43,163 +43,173 @@ function aGetHeader($title,$css,$isIndex){
 function aGetDorsalesAsignados($jugadores_reg){
     $row_jugadores_reg = mysql_fetch_assoc($jugadores_reg);
     $dorsalesocupados=array();
-    
-    echo '<div class="clearfix card">';
-    echo '<div class="clearfix title_card">';
-    echo '<p class="clearfix text_title_card">DORSALES ASIGNADOS</p>';
-    echo '</div>';
-    echo '<div class="clearfix container_card">';
-    echo '<div class="clearfix tabla_container_card">';
-                      
+?>
+    <div class="clearfix card">
+        <div class="clearfix title_card">
+            <p class="clearfix text_title_card">DORSALES ASIGNADOS</p>
+        </div>
+        <div class="clearfix container_card">
+            <div class="clearfix tabla_container_card">
+<?php
     $i=0;
     do {  
-                      
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdanombre_container_card">';
-    echo '<p class="clearfix textnombre_container_card">'.$row_jugadores_reg['nombre'].' '.$row_jugadores_reg['apellidos'].'</p>';
-    echo '</div>';
-    echo '<div class="clearfix celdadorsal_container_card">';
-    echo '<p class="clearfix textdorsal_container_card">'.$row_jugadores_reg['dorsal'].'</p>';
-    echo '</div>';
-    echo '</div>';
-
+?>                      
+                <div class="clearfix fila_container_card">
+                    <div class="clearfix celdanombre_container_card">
+                        <p class="clearfix textnombre_container_card"><?php echo $row_jugadores_reg['nombre'].' '.$row_jugadores_reg['apellidos']?></p>
+                    </div>';
+                    <div class="clearfix celdadorsal_container_card">';
+                        <p class="clearfix textdorsal_container_card"><?php echo $row_jugadores_reg['dorsal'] ?></p>';
+                    </div>';
+                </div>';
+<?php
         $dorsalesocupados[$i]=$row_jugadores_reg['dorsal'];
         $i++;
     } while ($row_jugadores_reg = mysql_fetch_assoc($jugadores_reg));
-
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
-    
+?>
+            </div>
+        </div>
+    </div>
+<?php
     return $dorsalesocupados;
 }
 function aGetSeleccionarDorsal($dorsalesocupados){
-    echo '<div class="clearfix card">';
-    echo '<div class="clearfix title_card">';
-    echo '<p class="clearfix text_title_card">SELECCIONAR DORSAL</p>';
-    echo '</div>';
-    echo '<div class="clearfix container_card">';
-    echo '<div class="clearfix tabla_container_card">';
-    echo '<form id="form1" name="form1" method="POST" action="seleccionardorsal.php">';
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdalabel_container_card">';
-    echo '<p class="clearfix textnombre_container_card">Seleccionar disponible</p>';
-    echo '</div>';
-    echo '<div class="clearfix celdaselect_container_card">';
-    echo '<p class="clearfix textdorsal_container_card">';
-    echo '<select name="tdorsal" id="tdorsal">';
-    echo '<option></option>';
-                                        
-    $j=1;
-    do {
-        if (!in_array($j, $dorsalesocupados)) {
-            echo '<option value="'.$j.'">'.$j.'</option>';
-        }
-        $j++;
-    } while ($j<26);                                    
-    echo '</select>';
-    echo '</p>';
-    echo '</div>';
-    echo '</div>';
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdabutton_container_card">';
-    echo '<p class="clearfix textnombre_container_card">';
-    echo '<input type="submit" name="tbutton" id="tbutton" value="Enviar" />';
-    echo '</p>';
-    echo '</div>';
-    echo '</div>';
-    echo '<input type="hidden" name="MM_update" value="form1" />';
-    echo '</form>';
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
-    
+?>
+    <div class="clearfix card">
+        <div class="clearfix title_card">
+            <p class="clearfix text_title_card">SELECCIONAR DORSAL</p>
+        </div>
+        <div class="clearfix container_card">
+            <div class="clearfix tabla_container_card">
+                <form id="form1" name="form1" method="POST" action="seleccionardorsal.php">
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdalabel_container_card">
+                            <p class="clearfix textnombre_container_card">Seleccionar disponible</p>
+                        </div>
+                        <div class="clearfix celdaselect_container_card">
+                            <p class="clearfix textdorsal_container_card">
+                                <select name="tdorsal" id="tdorsal">
+                                <option></option>
+                <?php                                        
+                            $j=1;
+                            do {
+                                if (!in_array($j, $dorsalesocupados)) {
+                                    echo '<option value="'.$j.'">'.$j.'</option>';
+                                }
+                                $j++;
+                            } while ($j<26);
+                ?>    
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdabutton_container_card">
+                            <p class="clearfix textnombre_container_card">
+                                <input type="submit" name="tbutton" id="tbutton" value="Enviar" />
+                            </p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="MM_update" value="form1" />
+                </form>
+            </div>
+        </div>
+    </div>
+<?php    
 }
 function aGetSeleccionarPosicion(){
     $reg=getAllPositions();
     $row_demarcaciones_reg = mysql_fetch_assoc($reg);
+?>
+    <div class="clearfix card">
+        <div class="clearfix title_card">
+            <p class="clearfix text_title_card">SELECCIONAR POSICION</p>
+        </div>
+        <div class="clearfix container_card">
+            <div class="clearfix tabla_container_card">
+                <form id="form1" name="form1" method="POST" action="seleccionarposicion.php">
+   
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdainstrucciones_container_card">
+                            <p class="clearfix textinstrucciones_container_card">Selecciona una posicion en cada opcion siendo la primera la más relevante.</br></br>Cada posicion trae al lado un ejemplo de un jugador que referencia esa posicion para ayudar.</br></br>NO DEJES OPCIONES EN BLANCO</br></p>
+                        </div>
+                    </div>
     
-    echo '<div class="clearfix card">';
-    echo '<div class="clearfix title_card">';
-    echo '<p class="clearfix text_title_card">SELECCIONAR POSICION</p>';
-    echo '</div>';
-    echo '<div class="clearfix container_card">';
-    echo '<div class="clearfix tabla_container_card">';
-    echo '<form id="form1" name="form1" method="POST" action="seleccionarposicion.php">';
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdalabel_container_card">
+                            <p class="clearfix textopcion_container_card">Opcion1</p>
+                        </div>
+                        <div class="clearfix celdaselect_container_card">
+                            <p class="clearfix textdorsal2_container_card">
+                                <select name="tseleccion1" id="tseleccion1">
+                                <option></option>
+                        <?php        
+                        do {        
+                            echo '<option value="'.$row_demarcaciones_reg['iddemarcacion'].'">'.$row_demarcaciones_reg['demarcacion'].'//'.$row_demarcaciones_reg['ejemplo'].'</option>';
+                        } while ($row_demarcaciones_reg = mysql_fetch_assoc($reg));
+                        ?>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                    <?php
+                        $reg=getAllPositions();
+                        $row_demarcaciones_reg = mysql_fetch_assoc($reg);
+                    ?>
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdalabel_container_card">
+                            <p class="clearfix textopcion_container_card">Opcion2</p>
+                        </div>
+                        <div class="clearfix celdaselect_container_card">
+                            <p class="clearfix textdorsal2_container_card">
+                                <select name="tseleccion2" id="tseleccion2">
+                                    <option></option>
+                    <?php            
+                        do {        
+                            echo '<option value="'.$row_demarcaciones_reg['iddemarcacion'].'">'.$row_demarcaciones_reg['demarcacion'].'//'.$row_demarcaciones_reg['ejemplo'].'</option>';
+                        } while ($row_demarcaciones_reg = mysql_fetch_assoc($reg));
+                    ?>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                    <?php
     
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdainstrucciones_container_card">';
-    echo '<p class="clearfix textinstrucciones_container_card">Selecciona una posicion en cada opcion siendo la primera la más relevante.</br></br>Cada posicion trae al lado un ejemplo de un jugador que referencia esa posicion para ayudar.</br></br>NO DEJES OPCIONES EN BLANCO</br></p>';
-    echo '</div>';
-    echo '</div>';
+                        $reg=getAllPositions();
+                        $row_demarcaciones_reg = mysql_fetch_assoc($reg);
+                    ?>
     
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdalabel_container_card">';
-    echo '<p class="clearfix textopcion_container_card">Opcion1</p>';
-    echo '</div>';
-    echo '<div class="clearfix celdaselect_container_card">';
-    echo '<p class="clearfix textdorsal2_container_card">';
-    echo '<select name="tseleccion1" id="tseleccion1">';
-    echo '<option></option>';
-    do {        
-        echo '<option value="'.$row_demarcaciones_reg['iddemarcacion'].'">'.$row_demarcaciones_reg['demarcacion'].'//'.$row_demarcaciones_reg['ejemplo'].'</option>';
-    } while ($row_demarcaciones_reg = mysql_fetch_assoc($reg));
-    echo '</select>';
-    echo '</p>';
-    echo '</div>';
-    echo '</div>';
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdalabel_container_card">
+                            <p class="clearfix textopcion_container_card">Opcion3</p>
+                        </div>
+                        <div class="clearfix celdaselect_container_card">
+                            <p class="clearfix textdorsal2_container_card">
+                                <select name="tseleccion3" id="tseleccion3">
+                                    <option></option>';
+                                <?php
+                                do {        
+                                    echo '<option value="'.$row_demarcaciones_reg['iddemarcacion'].'">'.$row_demarcaciones_reg['demarcacion'].'//'.$row_demarcaciones_reg['ejemplo'].'</option>';
+                                } while ($row_demarcaciones_reg = mysql_fetch_assoc($reg));
+                                ?>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
     
-    $reg=getAllPositions();
-    $row_demarcaciones_reg = mysql_fetch_assoc($reg);
-    
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdalabel_container_card">';
-    echo '<p class="clearfix textopcion_container_card">Opcion2</p>';
-    echo '</div>';
-    echo '<div class="clearfix celdaselect_container_card">';
-    echo '<p class="clearfix textdorsal2_container_card">';
-    echo '<select name="tseleccion2" id="tseleccion2">';
-    echo '<option></option>';
-    do {        
-        echo '<option value="'.$row_demarcaciones_reg['iddemarcacion'].'">'.$row_demarcaciones_reg['demarcacion'].'//'.$row_demarcaciones_reg['ejemplo'].'</option>';
-    } while ($row_demarcaciones_reg = mysql_fetch_assoc($reg));
-    echo '</select>';
-    echo '</p>';
-    echo '</div>';
-    echo '</div>';
-    
-    $reg=getAllPositions();
-    $row_demarcaciones_reg = mysql_fetch_assoc($reg);
-    
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdalabel_container_card">';
-    echo '<p class="clearfix textopcion_container_card">Opcion3</p>';
-    echo '</div>';
-    echo '<div class="clearfix celdaselect_container_card">';
-    echo '<p class="clearfix textdorsal2_container_card">';
-    echo '<select name="tseleccion3" id="tseleccion3">';
-    echo '<option></option>';
-    do {        
-        echo '<option value="'.$row_demarcaciones_reg['iddemarcacion'].'">'.$row_demarcaciones_reg['demarcacion'].'//'.$row_demarcaciones_reg['ejemplo'].'</option>';
-    } while ($row_demarcaciones_reg = mysql_fetch_assoc($reg));
-    echo '</select>';
-    echo '</p>';
-    echo '</div>';
-    echo '</div>';
-    
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdabutton_container_card">';
-    echo '<p class="clearfix textnombre_container_card">';
-    echo '<input type="submit" name="tbutton" id="tbutton" value="Enviar" />';
-    echo '</p>';
-    echo '</div>';
-    echo '</div>';
-    echo '<input type="hidden" name="MM_insert" value="form1" />';
-    echo '</form>';
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
-    
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdabutton_container_card">
+                            <p class="clearfix textnombre_container_card">
+                                <input type="submit" name="tbutton" id="tbutton" value="Enviar" />
+                            </p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="MM_insert" value="form1" />
+                </form>
+            </div>
+        </div>
+    </div>
+<?php    
 }
 function aGetPosicionesAsignadas($jugadores_reg){
     $row_jugadores_reg = mysql_fetch_assoc($jugadores_reg);
@@ -264,20 +274,24 @@ function aGetPosicionesAsignadas($jugadores_reg){
     echo '</div>';
 }
 function aGetMensajeError($title,$mensaje,$titlelink,$link){
-    echo '<div class="clearfix card" style="min-height: 150px">';
-    echo '<div class="clearfix title_card">';
-    echo '<p class="clearfix text_title_card">'.$title.'</p>';
-    echo '</div>';
-    echo '<div class="clearfix container_card">';
-    echo '<p class="clearfix text_error_sesion">'.$mensaje.'</p>';
-    if (isset($titlelink)){
-        echo '<a class="enlace_simple" href="'.$link.'">'.$titlelink.'!--></a>';
-    }
-    echo '</div>';
-    echo '</div>';
-    
+?>
+    <div class="clearfix card" style="min-height: 150px">
+        <div class="clearfix title_card">
+            <p class="clearfix text_title_card"><?php echo $title ?></p>
+        </div>';
+        <div class="clearfix container_card">';
+            <p class="clearfix text_error_sesion"><?php echo $mensaje ?></p>';
+            <?php    
+                if (isset($titlelink)){
+                    echo '<a class="enlace_simple" href="'.$link.'">'.$titlelink.'!--></a>';
+                }
+            ?>    
+        </div>';
+    </div>';
+<?php    
 }
 function aGetFormLogin(){
+
     echo '<div class="clearfix card">';
     echo '<div class="clearfix title_card">';
     echo '<p class="clearfix text_title_card">LOGIN</p>';
