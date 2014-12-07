@@ -144,11 +144,11 @@ if ($votacionabierta){
     if (jugConvocado($idjugador,$idpartido)){
         if (yaVotado($idjugador,$idpartido)){
             aGetMensajeError("ERROR!!!", "Ya has votado para este partido... Quedan por Votar ".$restjugadoresvotar." juagdores", "Volver", "index.php");
-            aGetFichaDelPartido($partido);
+            aGetFichaDelPartido($partido,true);
         }
         else{
             aGetVotacionesDelPartido($idjugador,$partido);
-            aGetFichaDelPartido2($partido);
+            aGetFichaDelPartido($partido,false);
         }
     }
     else{
