@@ -3,7 +3,7 @@
 # FileName="Connection_php_mysql.htm"
 # Type="MYSQL"
 # HTTP="true"
-error_reporting(E_ALL ^ E_DEPRECATED);
+error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 function comprobarDorsal($theValue) {    
     $conexion1=conectarBBDD();
     
