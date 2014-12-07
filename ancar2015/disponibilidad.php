@@ -103,7 +103,13 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
         GetSQLValueString($partido['idpartido'], "int"));
     mysql_select_db($database_conexion1, $conexion1);
     $Result1 = mysql_query($updateSQL, $conexion1) or die(mysql_error());
-    
+
+
+    $disponibilidadResto = getDisponibilidadOtrosJugadores($idpartido, $idjugador);
+    $message .= "DISPONIBILIDAD RESTO JUGADORES HASTA EL MOMENTO:" . "\r\n";
+    foreach ($disponibilidadResto as $jugador){
+        $message .= $jugador['nombre'].' '.$jugador['apellidos'].', Dorsal: '.$jugador['dorsal'].', Disponible: '.$jugador['disponible']."\r\n";
+    }
     enviarCorreo($subject, $message, $headers);
     
     $updateGoTo = "index.php?disponible=1";

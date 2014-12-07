@@ -291,4 +291,21 @@ function getMVP($idpartido){
     
     return $resultado;
 }
+function getDisponibilidadOtrosJugadores($idpartido, $idjugador){
+    $conexion1=conectarBBDD();
+
+    $query = sprintf("SELECT jugador.nombre, jugador.apellidos, jugador.dorsal, disp.disponible
+                    FROM `relacion_jug_disponibilidad` AS disp, `jugador`
+                    WHERE jugador.jugador_id=disp.idjugador
+                    AND disp.idpartido=%s
+                    AND jugador.jugador_id!=%s
+                    ORDER BY disp.disponible DESC",
+                    GetSQLValueString($idpartido, "int"),
+                    GetSQLValueString($idjugador, "int"));
+
+    $reg = mysql_query($query, $conexion1);
+    $resultado = mysql_fetch_assoc($reg);
+
+    return $resultado;
+}
 ?>
