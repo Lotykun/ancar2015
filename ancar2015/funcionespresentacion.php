@@ -490,61 +490,64 @@ function aGetVotacionesDelPartido($idjugador,$partido){
     
     $reg=getConvocadosPartido($partido['idpartido']);
     $row_reg = mysql_fetch_assoc($reg);
-    
-    echo '<div class="clearfix card">';
-    echo '<div class="clearfix title_card">';
-    echo '<p class="clearfix text_title_card">VALORACIONES JUGADORES</br><span style="font-weight: bold;">ANCAR-'.$partido['rival'].'</span></p>';
-    echo '</div>';
-    echo '<div class="clearfix container_card">';
-    echo '<div class="clearfix tabla_container_card">';
-    echo '<form id="form1" name="form1" method="POST" action="votacion.php?idpartido='.$partido['idpartido'].'">';
-    
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdainstrucciones_container_card">';
-    echo '<p class="clearfix textinstrucciones_container_card"></br>Vota segun tus propios criterios entre los jugadores convocados para el partido.</br></br></p>';
-    echo '</div>';
-    echo '</div>';
-    
-    do{
-        if ($row_reg['idjugador']!=$idjugador){
-            echo '<div class="clearfix fila_container_card">';
-            echo '<div class="clearfix celdalabel_container_card" style="width:230px; margin-right:10px;">';
-            echo '<p class="clearfix textopcion_container_card">'.$row_reg['dorsal'].' '.$row_reg['nombre'].' '.$row_reg['apellidos'].'</p>';
-            echo '</div>';
-            echo '<div class="clearfix celdaselect_container_card">';
-            echo '<p class="clearfix textopcion_container_card">';
-            echo '<select name="tselec'.$row_reg['idjugador'].'" id="tselec'.$row_reg['idjugador'].'">';
-            echo '<option></option>';
-            for ($i=1;$i<11;$i++) {        
-                echo '<option value="'.$i.'">'.$i.'</option>';
-            }
-            echo '</select>';
-            echo '</p>';
-            echo '</div>';
-            echo '</div>';
-        }
-    } while ($row_reg = mysql_fetch_assoc($reg));
-    
-    echo '<div class="clearfix fila_container_card">';
-    echo '<div class="clearfix celdabutton_container_card">';
-    echo '<p class="clearfix textnombre_container_card">';
-    echo '<input type="submit" name="tbutton" id="tbutton" value="Enviar" />';
-    echo '</p>';
-    echo '</div>';
-    echo '</div>';
-    echo '<input type="hidden" name="MM_update" value="form1" />';
-    echo '</form>';
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
-    
+?>    
+    <div class="clearfix card">
+        <div class="clearfix title_card">
+            <p class="clearfix text_title_card">VALORACIONES JUGADORES</br><span style="font-weight: bold;">ANCAR-<?php echo $partido['rival']?></span></p>
+        </div>
+        <div class="clearfix container_card">
+            <div class="clearfix tabla_container_card">
+                <form id="form1" name="form1" method="POST" action="votacion.php?idpartido=<?php echo $partido['idpartido']?>">
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdainstrucciones_container_card">
+                            <p class="clearfix textinstrucciones_container_card"></br>Vota segun tus propios criterios entre los jugadores convocados para el partido.</br></br></p>
+                        </div>
+                    </div>
+                    <?php
+                    do{
+                        if ($row_reg['idjugador']!=$idjugador){
+                    ?>
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdalabel_container_card" style="width:230px; margin-right:10px;">
+                            <p class="clearfix textopcion_container_card"><?php echo $row_reg['dorsal'].' '.$row_reg['nombre'].' '.$row_reg['apellidos']?></p>
+                        </div>
+                        <div class="clearfix celdaselect_container_card">
+                            <p class="clearfix textopcion_container_card">
+                                <select name="tselec<?php echo $row_reg['idjugador']?>" id="tselec<?php echo $row_reg['idjugador']?>">
+                                <option></option>
+                                <?php
+                                    for ($i=1;$i<11;$i++) {        
+                                        echo '<option value="'.$i.'">'.$i.'</option>';
+                                    }
+                                ?>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                    <?php
+                        }
+                    } while ($row_reg = mysql_fetch_assoc($reg));
+                    ?>
+                    <div class="clearfix fila_container_card">
+                        <div class="clearfix celdabutton_container_card">
+                            <p class="clearfix textnombre_container_card">
+                                <input type="submit" name="tbutton" id="tbutton" value="Enviar" />
+                            </p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="MM_update" value="form1" />
+                </form>
+            </div>
+        </div>
+    </div>
+<?php    
 }
 function aGetFichaDelPartido($partido){
     $idpartido=$partido['idpartido'];
     $titulares=  getTitularesPartido($idpartido);
     $suplentes=  getSuplentesPartido($idpartido);
     
-    $row_reg = mysql_fetch_assoc($titulares);
+    $row_reg = mysql_fetch_assoc($titulares);    
     echo '<div class="clearfix card">';
     echo '<div class="clearfix title_card">';
     echo '<p class="clearfix text_title_card">FICHA DEL PARTIDO</br><span style="font-weight: bold;">ANCAR '.$partido['golesfavor'].' - '.$partido['golescontra'].' '.$partido['rival'].'</span></p>';
