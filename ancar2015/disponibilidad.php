@@ -108,7 +108,7 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
     $disponibilidadResto = getDisponibilidadOtrosJugadores($idpartido, $idjugador);
     $message .= "DISPONIBILIDAD RESTO JUGADORES HASTA EL MOMENTO:" . "\r\n";
     foreach ($disponibilidadResto as $jugador){
-        $message .= $jugador['nombre'].$jugador['apellidos'].$jugador['dorsal'].$jugador['disponible']."\r\n";
+        $message .= $jugador['nombre'].' '.$jugador['apellidos'].', Dorsal: '.$jugador['dorsal'].', Disponible: '.$jugador['disponible']."\r\n";
     }
     enviarCorreo($subject, $message, $headers);
     
