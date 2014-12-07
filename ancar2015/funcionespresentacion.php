@@ -576,7 +576,7 @@ function aGetFichaDelPartido($partido,$cerrada){
                     <div class="clearfix celdatitulodatos_container_card">
                         <p class="clearfix texttitulodatos_container_card">Gol</p>
                     </div>
-                    <div class="clearfix celdatitulodatos_container_card">'
+                    <div class="clearfix celdatitulodatos_container_card">
                         <p class="clearfix texttitulodatos_container_card">Asis</p>
                     </div>
                     <div class="clearfix celdatitulodatos_container_card">
