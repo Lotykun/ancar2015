@@ -2,30 +2,31 @@
 
 function aGetHeader($title,$css,$isIndex){
     $logoutAction = $_SERVER['PHP_SELF']."?doLogout=true";
-    
-    echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
-    echo '<html xmlns="http://www.w3.org/1999/xhtml">';
-    echo '<head>';
-    echo '<link rel="stylesheet" href="css/boilerplate.css" />';
-    echo '<link rel="stylesheet" href="css/plantilla.css" />';
-    echo '<link href="css/timeTo.css" type="text/css" rel="stylesheet"/>';
-    echo '<link rel="stylesheet" href="css/'.$css.'.css" />';
-    echo '<script type="text/javascript" src="assets/js/countdown.js"></script>';
-    echo '<script src="http://code.jquery.com/jquery-1.9.1.js"></script>';
-    echo '<script src="//code.jquery.com/jquery-1.10.2.js"></script>';
-    echo '<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>';
-    echo '<meta charset="utf-8">';
-    echo '<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />';
-    echo '<meta http-equiv="Content-type" content="text/html; charset=utf-8" />';
-    echo '<title>'.$title.'</title>';
-    echo '</head>';
-    echo '<body>';
-    echo '<div id="primaryContainer" class="primaryContainer clearfix">';
-        echo '<div id="header" class="clearfix">';
-            echo '<div id="logo" class="clearfix">';
-            	echo '<a href="index.php"><img src="png/AncarLOGO.png" width="250" height="80" /></a>';
-            echo '</div>';
-            echo '<div id="fecha_usuario" class="clearfix">';
+?>    
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <link rel="stylesheet" href="css/boilerplate.css" />
+    <link rel="stylesheet" href="css/plantilla.css" />
+    <link href="css/timeTo.css" type="text/css" rel="stylesheet"/>
+    <?php echo '<link rel="stylesheet" href="css/'.$css.'.css" />'; ?>
+    <script type="text/javascript" src="assets/js/countdown.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title><?php echo $title ?></title>
+    </head>
+    <body>
+    <div id="primaryContainer" class="primaryContainer clearfix">
+        <div id="header" class="clearfix">
+            <div id="logo" class="clearfix">
+            	<a href="index.php"><img src="png/AncarLOGO.png" width="250" height="80" /></a>
+            </div>
+            <div id="fecha_usuario" class="clearfix">
+                <?php
             	echo'<p class="text_fecha_usuario clearfix">'.date("D j M Y").'</p>';
                 if (isset($_SESSION['MM_Username'])){
                     echo '<p class="text_fecha_usuario clearfix">Bienvenido '.$_SESSION['MM_Username'].'</p>';
@@ -33,9 +34,11 @@ function aGetHeader($title,$css,$isIndex){
                 if ($isIndex){
                     echo '<a class="text_fecha_usuario enlace_desconectar" href="'.$logoutAction.'">Desconectar</a>';
                 }
-            echo '</div>';
-       	echo '</div>';
-        echo '<div id="main" class="clearfix">';
+                ?>
+            </div>';
+       	</div>';
+        <div id="main" class="clearfix">';
+<?php
 }
 function aGetDorsalesAsignados($jugadores_reg){
     $row_jugadores_reg = mysql_fetch_assoc($jugadores_reg);
