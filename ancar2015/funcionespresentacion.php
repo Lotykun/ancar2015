@@ -347,6 +347,9 @@ function aGetMain($admin){
                     <a id=nuevo class="enlace_simple" href="votacion.php?idpartido=6">Votaciones Jornada 6--></a>
                 </div>
                 <div class="clearfix fila_container_card">
+                    <a class="enlace_simple" href="estadisjugadores.php">Datos Jugadores</a>
+                </div>
+                <div class="clearfix fila_container_card">
                     <a class="enlace_simple" href="votacion.php?idpartido=1">Datos Jornada 1--></a>
                 </div>
                 <div class="clearfix fila_container_card">
@@ -863,7 +866,7 @@ function aGetDatosJugadores(){
     
     $row_reg = mysql_fetch_assoc($jugadores);
 ?>    
-    <div class="clearfix card">
+        <div class="clearfix card" style="width:400px;">
         <div class="clearfix title_card">
             <p class="clearfix text_title_card">DATOS DE JUGADORES</p>
         </div>
@@ -888,7 +891,7 @@ function aGetDatosJugadores(){
                         <p class="clearfix texttitulodatos_container_card">T.R.</p>
                     </div>
                     <div class="clearfix celdatitulodatos_container_card">
-                        <p class="clearfix texttitulodatos_container_card">MVPs</p>
+                        <p class="clearfix texttitulodatos_container_card">MVP</p>
                     </div>
                     <div class="clearfix celdatitulodatos_container_card">
                         <p class="clearfix texttitulodatos_container_card">Min</p>
@@ -909,7 +912,7 @@ function aGetDatosJugadores(){
                         <p class="clearfix textvotacion_container_card"><?php echo $resultado['nombre'].' '.$resultado['apellidos']?></p>
                     </div>
                     <div class="clearfix celdadatos_container_card">
-                        <p class="clearfix textvotacion_container_card"><?php echo $resultado['PJ']?></p>
+                        <p class="clearfix textvotacion_container_card"><?php echo $resultado['pj']?></p>
                     </div>
                     <div class="clearfix celdadatos_container_card">
                     <?php

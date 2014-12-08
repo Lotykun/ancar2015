@@ -291,6 +291,17 @@ function getMVP($idpartido){
     
     return $resultado;
 }
+function getMVP2($idpartido){
+    $conexion1=conectarBBDD();
+    
+    $query = sprintf("SELECT * FROM relacion_jug_partido WHERE idpartido=%s and mvp=1",
+            GetSQLValueString($idpartido, "int"));
+    $reg = mysql_query($query, $conexion1);
+    $row_reg = mysql_fetch_assoc($reg);
+    $resultado = $row_reg['idjugador'];
+    
+    return $resultado;
+}
 function getStadisticasjugador($idjugador){
     $conexion1=conectarBBDD();
     $resultado=array();
@@ -302,23 +313,63 @@ function getStadisticasjugador($idjugador){
     $partidosjugados = mysql_num_rows($reg);
     
     /*get datos jugador*/
-    $query = sprintf("SELECT dorsal, nombre, apellidos, sum(goles) as goles,sum(asistencias) as asistencias,sum(minutos) as minutos,sum(TA) as TA,sum(TR) as TR,sum(valoracion) as valoracion,sum(esportero) as portero FROM jugador, relacion_jug_partido WHERE idjugador=%s and jugador_id=idjugador",
+    $query = sprintf("SELECT dorsal, nombre, apellidos, sum(goles) as goles,sum(asistencias) as asistencias,sum(minutos) as minutos,sum(TA) as TA,sum(TR) as TR,sum(valoracion) as valoracion,sum(esportero) as portero,sum(mvp) as mvp FROM jugador, relacion_jug_partido WHERE idjugador=%s and jugador_id=idjugador",
             GetSQLValueString($idjugador, "int"));
     $reg = mysql_query($query, $conexion1);
     $row_reg = mysql_fetch_assoc($reg);
     if (intval($row_reg['portero'])>0){
         $resultado['portero']=true;
     }
-    $mvps=3;
-    $resultado['pj'] = $partidosjugados;
-    $resultado['goles']=$row_reg['goles'];
-    $resultado['asistencias']=$row_reg['asistencias'];
-    $resultado['TA']=$row_reg['TA'];
-    $resultado['TR']=$row_reg['TR'];
-    $resultado['MVPs']=$mvps;/*averiguar como hago esto*/
-    $resultado['minutos']=$row_reg['minutos'];
-    $resultado['valoracion']=$row_reg['valoracion']/$partidosjugados;
+    else{
+        $resultado['portero']=false;
+    }
+    $resultado['dorsal'] = $row_reg['dorsal'];
+    $resultado['nombre'] = $row_reg['nombre'];
+    $resultado['apellidos'] = $row_reg['apellidos'];
     
+    $resultado['pj'] = $partidosjugados;
+    if (isset($row_reg['goles'])){
+        $resultado['goles']=$row_reg['goles'];
+    }
+    else{
+        $resultado['goles']=0;
+    }
+    if (isset($row_reg['aisitencias'])){
+        $resultado['asistencias']=$row_reg['asistencias'];
+    }
+    else{
+        $resultado['asistencias']=0;
+    }
+    if (isset($row_reg['TA'])){
+        $resultado['TA']=$row_reg['TA'];
+    }
+    else{
+        $resultado['TA']=0;
+    }
+    if (isset($row_reg['TR'])){
+        $resultado['TR']=$row_reg['TR'];
+    }
+    else{
+        $resultado['TR']=0;
+    }
+    if (isset($row_reg['mvp'])){
+    $resultado['MVPs']=$row_reg['mvp'];
+    }
+    else{
+        $resultado['MVPs']=0;
+    }
+    if (isset($row_reg['minutos'])){
+        $resultado['minutos']=$row_reg['minutos'];
+    }
+    else{
+        $resultado['minutos']=0;
+    }
+    if ($partidosjugados>0){
+        $resultado['valoracion']=$row_reg['valoracion']/$partidosjugados;
+    }
+    else{
+        $resultado['valoracion']=0;
+    }        
     return $resultado;
 }
 function getJugadores(){
