@@ -291,4 +291,31 @@ function getMVP($idpartido){
     
     return $resultado;
 }
+function getStadisticasjugador($idjugador){
+    $conexion1=conectarBBDD();
+    $resultado=array();
+    
+    /*get partidos jugados */
+    $query = sprintf("SELECT * FROM relacion_jug_partido WHERE idjugador=%s",
+            GetSQLValueString($idjugador, "int"));
+    $reg = mysql_query($query, $conexion1);
+    $partidosjugados = mysql_num_rows($reg);
+    
+    /*get datos jugador*/
+    $query = sprintf("SELECT sum(goles) as goles,sum(asistencias) as asistencias,sum(minutos) as minutos,sum(TA) as TA,sum(TR) as TR,sum(valoracion) as valoracion FROM relacion_jug_partido WHERE idjugador=%s",
+            GetSQLValueString($idjugador, "int"));
+    $reg = mysql_query($query, $conexion1);
+    $row_reg = mysql_fetch_assoc($reg);
+    $mvps=3;
+    $resultado['pj'] = $partidosjugados;
+    $resultado['goles']=$row_reg['goles'];
+    $resultado['asistencias']=$row_reg['asistencias'];
+    $resultado['TA']=$row_reg['TA'];
+    $resultado['TR']=$row_reg['TR'];
+    $resultado['MVPs']=$mvps;/*averiguar como hago esto*/
+    $resultado['minutos']=$row_reg['minutos'];
+    $resultado['valoracion']=$row_reg['valoracion']/$partidosjugados;
+    
+    return $resultado;
+}
 ?>
