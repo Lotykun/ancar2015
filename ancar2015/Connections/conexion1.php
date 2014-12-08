@@ -302,10 +302,13 @@ function getStadisticasjugador($idjugador){
     $partidosjugados = mysql_num_rows($reg);
     
     /*get datos jugador*/
-    $query = sprintf("SELECT sum(goles) as goles,sum(asistencias) as asistencias,sum(minutos) as minutos,sum(TA) as TA,sum(TR) as TR,sum(valoracion) as valoracion FROM relacion_jug_partido WHERE idjugador=%s",
+    $query = sprintf("SELECT dorsal, nombre, apellidos, sum(goles) as goles,sum(asistencias) as asistencias,sum(minutos) as minutos,sum(TA) as TA,sum(TR) as TR,sum(valoracion) as valoracion,sum(esportero) as portero FROM jugador, relacion_jug_partido WHERE idjugador=%s and jugador_id=idjugador",
             GetSQLValueString($idjugador, "int"));
     $reg = mysql_query($query, $conexion1);
     $row_reg = mysql_fetch_assoc($reg);
+    if (intval($row_reg['portero'])>0){
+        $resultado['portero']=true;
+    }
     $mvps=3;
     $resultado['pj'] = $partidosjugados;
     $resultado['goles']=$row_reg['goles'];
@@ -317,5 +320,14 @@ function getStadisticasjugador($idjugador){
     $resultado['valoracion']=$row_reg['valoracion']/$partidosjugados;
     
     return $resultado;
+}
+function getJugadores(){
+    $conexion1=conectarBBDD();
+    
+    /*get partidos jugados */
+    $query = "select jugador_id from jugador order by dorsal";
+    $reg = mysql_query($query, $conexion1);
+    
+    return $reg;
 }
 ?>
