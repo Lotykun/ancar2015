@@ -14,6 +14,7 @@ function aGetHeader($title,$css,$isIndex){
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.tablesorter.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -415,6 +416,16 @@ function aGetScriptanimacioncolor(){
         }   
         animateDivers();
     });
+    </script>
+<?php    
+}
+function aGetScriptordenartablas(){
+?>    
+    <script type="text/javascript">
+        $(document).ready(function() { 
+            $("#myTable").tablesorter(); 
+        } 
+        ); 
     </script>
 <?php    
 }
@@ -871,7 +882,55 @@ function aGetDatosJugadores(){
             <p class="clearfix text_title_card">DATOS DE JUGADORES</p>
         </div>
         <div class="clearfix container_card">
-            <div class="clearfix tabla_container_card">
+            
+            <table id="myTable" class="clearfix tabla_container_card">
+                <thead>
+                    <tr class="clearfix fila_container_card">
+                        <th class="clearfix celdatitulodorsal_container_card"></th>
+                        <th class="clearfix celdatitulonombre_container_card"></th>
+                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">PJ</p></th>
+                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">Gol</p></th>
+                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">Asis</p></th>
+                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">T.A.</p></th>
+                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">T.R.</p></th>
+                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">MVP</p></th>
+                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">Min</p></th>
+                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">Nota</p></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    do {
+                        $resultado=  getStadisticasjugador($row_reg['jugador_id']);
+                    ?>
+                    <tr class="clearfix fila_container_card">
+                        <td class="clearfix celdadorsal_container_card"><p class="clearfix textvotacion_container_card"><?php echo $resultado['dorsal']?></p></td>
+                        <td class="clearfix celdanombre_container_card"><p class="clearfix textvotacion_container_card"><?php echo $resultado['nombre'].' '.$resultado['apellidos']?></p></td>
+                        <td class="clearfix celdadatos_container_card"><p class="clearfix textvotacion_container_card"><?php echo $resultado['pj']?></p></td>
+                        <td class="clearfix celdadatos_container_card">
+                            <?php
+                                if ($row_reg['esportero']){
+                                    echo '<p class="clearfix textvotacion_container_card">-'.$resultado['goles'].'</p>';
+                                }
+                                else{
+                                    echo '<p class="clearfix textvotacion_container_card">'.$resultado['goles'].'</p>';
+                                }
+                            ?>
+                        </td>
+                        <td class="clearfix celdadatos_container_card"><p class="clearfix textvotacion_container_card"><?php echo $resultado['asistencias']?></p></td>
+                        <td class="clearfix celdadatos_container_card"><p class="clearfix textvotacion_container_card"><?php echo $resultado['TA']?></p></td>
+                        <td class="clearfix celdadatos_container_card"><p class="clearfix textvotacion_container_card"><?php echo $resultado['TR']?></p></td>
+                        <td class="clearfix celdadatos_container_card"><p class="clearfix textvotacion_container_card"><?php echo $resultado['MVPs']?></p></td>
+                        <td class="clearfix celdadatos_container_card"><p class="clearfix textvotacion_container_card"><?php echo $resultado['minutos']?></p></td>
+                        <td class="clearfix celdadatos_container_card"><p class="clearfix textvotacion_container_card"><?php echo number_format($resultado['valoracion'],1)?></p></td>
+                    </tr>
+                    <?php
+                    } while ($row_reg = mysql_fetch_assoc($jugadores));
+                    ?>
+                </tbody>
+            </table>
+            
+            <!--<div class="clearfix tabla_container_card">
                 <div class="clearfix fila_container_card">
                     <div class="clearfix celdatitulodorsal_container_card"></div>
                     <div class="clearfix celdatitulonombre_container_card"></div>
@@ -946,7 +1005,7 @@ function aGetDatosJugadores(){
                 <?php
                 } while ($row_reg = mysql_fetch_assoc($jugadores));
                 ?>
-            </div>
+            </div>-->
         </div>
     </div>
 <?php    

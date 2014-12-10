@@ -71,6 +71,7 @@ if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("",$MM_authorizedUsers,
 ?>
 <?php
 aGetHeader("Estadisticas","estadisjugadores",FALSE);
+aGetScriptordenartablas();
 aGetDatosJugadores();
 aGetFooter();
 ?>
