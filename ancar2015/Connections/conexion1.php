@@ -334,7 +334,7 @@ function getStadisticasjugador($idjugador){
     else{
         $resultado['goles']=0;
     }
-    if (isset($row_reg['aisitencias'])){
+    if (isset($row_reg['asistencias'])){
         $resultado['asistencias']=$row_reg['asistencias'];
     }
     else{
