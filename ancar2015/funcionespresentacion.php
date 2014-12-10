@@ -14,6 +14,7 @@ function aGetHeader($title,$css,$isIndex){
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.tablesorter.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -347,6 +348,9 @@ function aGetMain($admin){
                     <a id=nuevo class="enlace_simple" href="votacion.php?idpartido=6">Votaciones Jornada 6--></a>
                 </div>
                 <div class="clearfix fila_container_card">
+                    <a class="enlace_simple" href="estadisjugadores.php">Datos Jugadores</a>
+                </div>
+                <div class="clearfix fila_container_card">
                     <a class="enlace_simple" href="votacion.php?idpartido=1">Datos Jornada 1--></a>
                 </div>
                 <div class="clearfix fila_container_card">
@@ -412,6 +416,17 @@ function aGetScriptanimacioncolor(){
         }   
         animateDivers();
     });
+    </script>
+<?php    
+}
+function aGetScriptordenartablas(){
+?>    
+    <script type="text/javascript">
+        $(document).ready(function() { 
+            /*$("#myTable").tablesorter(); */
+            $("#myTable").tablesorter( {sortList: [[0,0], [1,0], [2,0], [3,0], [4,0], [5,0], [6,0], [7,0], [8,0], [9,0]]} );
+        } 
+        ); 
     </script>
 <?php    
 }
@@ -856,6 +871,144 @@ function aGetDatosPartido($partido,$idjugadormvp){
     </div>
     </div>
 </div>
+<?php    
+}
+function aGetDatosJugadores(){
+    $jugadores = getJugadores();
+    
+    $row_reg = mysql_fetch_assoc($jugadores);
+?>    
+        <div class="clearfix card" style="width:400px;">
+        <div class="clearfix title_card">
+            <p class="clearfix text_title_card">DATOS DE JUGADORES</p>
+        </div>
+        <div class="clearfix container_card">
+            
+            <table id="myTable" class="clearfix tabla_container_card">
+                <thead>
+                    <tr class="clearfix fila_container_card">
+                        <th class="clearfix celdatitulodorsal_container_card"></th>
+                        <th class="clearfix celdatitulonombre_container_card"></th>
+                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">PJ</p></th>
+                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">Gol</p></th>
+                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">Asis</p></th>
+                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">T.A.</p></th>
+                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">T.R.</p></th>
+                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">Mvp</p></th>
+                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">Min</p></th>
+                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">Nota</p></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    do {
+                        $resultado=  getStadisticasjugador($row_reg['jugador_id']);
+                    ?>
+                    <tr class="clearfix fila_container_card">
+                        <td class="clearfix celdadorsal_container_card"><p class="clearfix textvotacion_container_card"><?php echo $resultado['dorsal']?></p></td>
+                        <td class="clearfix celdanombre_container_card"><p class="clearfix textvotacion_container_card"><?php echo $resultado['nombre'].' '.$resultado['apellidos']?></p></td>
+                        <td class="clearfix celdadatos_container_card"><p class="clearfix textvotacion_container_card"><?php echo $resultado['pj']?></p></td>
+                        <td class="clearfix celdadatos_container_card">
+                            <?php
+                                if ($resultado['portero']){
+                                    echo '<p class="clearfix textvotacion_container_card">-'.$resultado['goles'].'</p>';
+                                }
+                                else{
+                                    echo '<p class="clearfix textvotacion_container_card">'.$resultado['goles'].'</p>';
+                                }
+                            ?>
+                        </td>
+                        <td class="clearfix celdadatos_container_card"><p class="clearfix textvotacion_container_card"><?php echo $resultado['asistencias']?></p></td>
+                        <td class="clearfix celdadatos_container_card"><p class="clearfix textvotacion_container_card"><?php echo $resultado['TA']?></p></td>
+                        <td class="clearfix celdadatos_container_card"><p class="clearfix textvotacion_container_card"><?php echo $resultado['TR']?></p></td>
+                        <td class="clearfix celdadatos_container_card"><p class="clearfix textvotacion_container_card"><?php echo $resultado['MVPs']?></p></td>
+                        <td class="clearfix celdadatos_container_card"><p class="clearfix textvotacion_container_card"><?php echo $resultado['minutos']?></p></td>
+                        <td class="clearfix celdadatos_container_card"><p class="clearfix textvotacion_container_card"><?php echo number_format($resultado['valoracion'],1)?></p></td>
+                    </tr>
+                    <?php
+                    } while ($row_reg = mysql_fetch_assoc($jugadores));
+                    ?>
+                </tbody>
+            </table>
+            
+            <!--<div class="clearfix tabla_container_card">
+                <div class="clearfix fila_container_card">
+                    <div class="clearfix celdatitulodorsal_container_card"></div>
+                    <div class="clearfix celdatitulonombre_container_card"></div>
+                    <div class="clearfix celdatitulodatos_container_card">
+                        <p class="clearfix texttitulodatos_container_card">PJ</p>
+                    </div>
+                    <div class="clearfix celdatitulodatos_container_card">
+                        <p class="clearfix texttitulodatos_container_card">Gol</p>
+                    </div>
+                    <div class="clearfix celdatitulodatos_container_card">
+                        <p class="clearfix texttitulodatos_container_card">Asis</p>
+                    </div>
+                    <div class="clearfix celdatitulodatos_container_card">
+                        <p class="clearfix texttitulodatos_container_card">T.A.</p>
+                    </div>
+                    <div class="clearfix celdatitulodatos_container_card">
+                        <p class="clearfix texttitulodatos_container_card">T.R.</p>
+                    </div>
+                    <div class="clearfix celdatitulodatos_container_card">
+                        <p class="clearfix texttitulodatos_container_card">MVP</p>
+                    </div>
+                    <div class="clearfix celdatitulodatos_container_card">
+                        <p class="clearfix texttitulodatos_container_card">Min</p>
+                    </div>
+                    <div class="clearfix celdatitulodatos_container_card">
+                        <p class="clearfix texttitulodatos_container_card">Nota</p>
+                    </div>
+                </div>
+                <?php
+                do {
+                    $resultado=  getStadisticasjugador($row_reg['jugador_id']);
+                ?>
+                <div class="clearfix fila_container_card">
+                    <div class="clearfix celdadorsal_container_card">
+                        <p class="clearfix textvotacion_container_card"><?php echo $resultado['dorsal']?></p>
+                    </div>
+                    <div class="clearfix celdanombre_container_card">
+                        <p class="clearfix textvotacion_container_card"><?php echo $resultado['nombre'].' '.$resultado['apellidos']?></p>
+                    </div>
+                    <div class="clearfix celdadatos_container_card">
+                        <p class="clearfix textvotacion_container_card"><?php echo $resultado['pj']?></p>
+                    </div>
+                    <div class="clearfix celdadatos_container_card">
+                    <?php
+                    if ($row_reg['esportero']){
+                        echo '<p class="clearfix textvotacion_container_card">-'.$resultado['goles'].'</p>';
+                    }
+                    else{
+                        echo '<p class="clearfix textvotacion_container_card">'.$resultado['goles'].'</p>';
+                    }
+                    ?>
+                    </div>
+                    <div class="clearfix celdadatos_container_card">
+                        <p class="clearfix textvotacion_container_card"><?php echo $resultado['asistencias']?></p>
+                    </div>
+                    <div class="clearfix celdadatos_container_card">
+                        <p class="clearfix textvotacion_container_card"><?php echo $resultado['TA']?></p>
+                    </div>
+                    <div class="clearfix celdadatos_container_card">
+                        <p class="clearfix textvotacion_container_card"><?php echo $resultado['TR']?></p>
+                    </div>
+                        <div class="clearfix celdadatos_container_card">
+                        <p class="clearfix textvotacion_container_card"><?php echo $resultado['MVPs']?></p>
+                    </div>
+                        <div class="clearfix celdadatos_container_card">
+                        <p class="clearfix textvotacion_container_card"><?php echo $resultado['minutos']?></p>
+                    </div>
+                    <div class="clearfix celdadatos_container_card">
+                        <p class="clearfix textvotacion_container_card"><?php echo number_format($resultado['valoracion'],1)?></p>
+                    </div>
+                </div>
+                <?php
+                } while ($row_reg = mysql_fetch_assoc($jugadores));
+                ?>
+            </div>-->
+        </div>
+    </div>
 <?php    
 }
 function aGetFooter(){
