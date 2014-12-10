@@ -894,7 +894,7 @@ function aGetDatosJugadores(){
                         <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">Asis</p></th>
                         <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">T.A.</p></th>
                         <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">T.R.</p></th>
-                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">MVP</p></th>
+                        <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">Mvp</p></th>
                         <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">Min</p></th>
                         <th class="clearfix celdatitulodatos_container_card"><p class="clearfix texttitulodatos_container_card">Nota</p></th>
                     </tr>
