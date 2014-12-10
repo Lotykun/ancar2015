@@ -317,6 +317,7 @@ function getStadisticasjugador($idjugador){
             GetSQLValueString($idjugador, "int"));
     $reg = mysql_query($query, $conexion1);
     $row_reg = mysql_fetch_assoc($reg);
+    
     if (intval($row_reg['portero'])>0){
         $resultado['portero']=true;
     }

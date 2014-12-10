@@ -423,7 +423,8 @@ function aGetScriptordenartablas(){
 ?>    
     <script type="text/javascript">
         $(document).ready(function() { 
-            $("#myTable").tablesorter(); 
+            /*$("#myTable").tablesorter(); */
+            $("#myTable").tablesorter( {sortList: [[0,0], [1,0], [2,0], [3,0], [4,0], [5,0], [6,0], [7,0], [8,0], [9,0]]} );
         } 
         ); 
     </script>
@@ -909,7 +910,7 @@ function aGetDatosJugadores(){
                         <td class="clearfix celdadatos_container_card"><p class="clearfix textvotacion_container_card"><?php echo $resultado['pj']?></p></td>
                         <td class="clearfix celdadatos_container_card">
                             <?php
-                                if ($row_reg['esportero']){
+                                if ($resultado['portero']){
                                     echo '<p class="clearfix textvotacion_container_card">-'.$resultado['goles'].'</p>';
                                 }
                                 else{

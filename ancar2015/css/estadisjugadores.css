@@ -23,6 +23,7 @@ and open the template in the editor.
     margin-top: 0px;
     clear: none;
     width: 26px;
+    cursor: pointer;
 }
 .tabla_container_card .celdatitulodorsal_container_card{
     float: left;
