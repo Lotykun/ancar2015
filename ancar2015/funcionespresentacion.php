@@ -348,6 +348,9 @@ function aGetMain($admin){
                     <a id=nuevo class="enlace_simple" href="votacion.php?idpartido=6">Votaciones Jornada 6--></a>
                 </div>
                 <div class="clearfix fila_container_card">
+                    <a id="nuevo" class="enlace_simple" href="disponibilidad.php">Estoy Disponible?--></a>
+                </div>
+                <div class="clearfix fila_container_card">
                     <a class="enlace_simple" href="estadisjugadores.php">Datos Jugadores</a>
                 </div>
                 <div class="clearfix fila_container_card">
