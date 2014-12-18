@@ -106,10 +106,25 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
 
 
     $disponibilidadResto = getDisponibilidadOtrosJugadores($idpartido, $idjugador);
+    $row_reg = mysql_fetch_assoc($disponibilidadResto);
     $message .= "DISPONIBILIDAD RESTO JUGADORES HASTA EL MOMENTO:" . "\r\n";
-    foreach ($disponibilidadResto as $jugador){
-        $message .= $jugador['nombre'].' '.$jugador['apellidos'].', Dorsal: '.$jugador['dorsal'].', Disponible: '.$jugador['disponible']."\r\n";
-    }
+    do{
+        /*$message .= $jugador['nombre'].' '.$jugador['apellidos'].', Dorsal: '.$jugador['dorsal'].', Disponible: '.$jugador['disponible']."\r\n";*/
+        if (isset($row_reg['disponible'])){
+            if ($row_reg['disponible']==1){
+                $disponible="DISPONIBLE";
+            }
+            else{
+                $disponible="NO DISPONIBLE";
+            }
+        }
+        else{
+            $disponible="NULL";
+        }
+        $message .= $row_reg['dorsal'].' '.$row_reg['nombre'].' '.$row_reg['apellidos'].', '.$disponible."\r\n";
+    
+    } while ($row_reg = mysql_fetch_assoc($disponibilidadResto));
+    
     enviarCorreo($subject, $message, $headers);
     
     $updateGoTo = "index.php?disponible=1";

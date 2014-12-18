@@ -395,8 +395,8 @@ function getDisponibilidadOtrosJugadores($idpartido, $idjugador){
                     GetSQLValueString($idjugador, "int"));
 
     $reg = mysql_query($query, $conexion1);
-    $resultado = mysql_fetch_assoc($reg);
+    /*$resultado = mysql_fetch_assoc($reg);*/
 
-    return $resultado;
+    return $reg;
 }
 ?>
