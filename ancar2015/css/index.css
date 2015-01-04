@@ -1,6 +1,21 @@
 /* This code is only meant for previewing your Reflow design. */
 /* MAKETACION ESPECIFICA DE PAGINA*/
-
+.tabla_container_card .celdageneralderecha_container_card{
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    width: 180px;
+}
+.tabla_container_card .celdageneralizquierda_container_card{
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    width: 50px;
+}
 /* MAKETACION ESPECIFICA DE PAGINA*/
 /* TEXTOS*/
 .text_temporal {
@@ -12,6 +27,15 @@
     word-wrap: break-word;
     color: rgb(204,204,204);
 	margin-bottom:5px;
+}
+.texttitulo_cuenta_atras {
+	font-family: arial;
+    font-size: 12px;
+    text-align:left;
+    font-weight: normal;
+    line-height: 11px;
+    word-wrap: break-word;
+    color: rgb(0, 0, 0);
 }
 /* TEXTOS*/
 

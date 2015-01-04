@@ -85,10 +85,6 @@ if (isset($_SERVER['QUERY_STRING'])) {
 }
 if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
     
-    $from = "no-reply@ancar2015.com";
-    $headers = "From:" . $from;
-    $subject= "Disponibilidad ".$_SESSION['MM_Username']." Jornada ".$idpartido;
-    
     if (isset($_POST['tbutton1'])){
         $button=1;
         $message  = 'DISPONIBLE' . "\r\n";
@@ -104,7 +100,9 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
     mysql_select_db($database_conexion1, $conexion1);
     $Result1 = mysql_query($updateSQL, $conexion1) or die(mysql_error());
 
-
+    $from = "no-reply@ancar2015.com";
+    $headers = "From:" . $from;
+    $subject= "Disponibilidad ".$_SESSION['MM_Username']." Jornada ".$idpartido;
     $disponibilidadResto = getDisponibilidadOtrosJugadores($idpartido, $idjugador);
     $row_reg = mysql_fetch_assoc($disponibilidadResto);
     $message .= "DISPONIBILIDAD RESTO JUGADORES HASTA EL MOMENTO:" . "\r\n";
@@ -151,9 +149,9 @@ else{
     aGetSeleccionarDisponibilidad($partido);
 }
 aGetFooter();
-$nuevafecha = strtotime ('-2 day',strtotime ($partido['fecha']));
+/*$nuevafecha = strtotime ('-2 day',strtotime ($partido['fecha']));
 $nuevafecha = date ( 'Y-m-j' , $nuevafecha );
-aGetScriptCountdown($nuevafecha,"15:00:00");
+aGetScriptCountdown($nuevafecha,"15:00:00");*/
 /*aGetScriptCountdown("2014-10-24","15:00:00");*/
 
 mysql_free_result($jugadores_reg);

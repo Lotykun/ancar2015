@@ -32,10 +32,14 @@ function aGetHeader($title,$css,$isIndex){
                 if (isset($_SESSION['MM_Username'])){
                     echo '<p class="text_fecha_usuario clearfix">Bienvenido '.$_SESSION['MM_Username'].'</p>';
                 }
-                if ($isIndex){
+                /*if ($isIndex){*/
                     echo '<a class="text_fecha_usuario enlace_desconectar" href="'.$logoutAction.'">Desconectar</a>';
-                }
+                /*}*/
+                    $partido=  getNextPartido(1);
                 ?>
+            </div>
+            <div id="prox_partido" class="clearfix">
+                <p class="textproxpartido">Proximo Partido <?php echo $partido['rival'].' - '.date("D j M Y",strtotime ($partido['fecha'])) ?></p>
             </div>
        	</div>
         <div id="main" class="clearfix">
@@ -333,7 +337,7 @@ function aGetFormLogin(){
     </div>
 <?php
 }
-function aGetMain($admin){
+function aGetMain(){
 ?>
     <div class="clearfix card">
         <div class="clearfix title_card">
@@ -342,31 +346,53 @@ function aGetMain($admin){
         <div class="clearfix container_card">
             <div class="clearfix tabla_container_card">
                 <div class="clearfix fila_container_card">
-                    <a id="nuevo" class="enlace_simple" href="votacion.php?idpartido=7">Votaciones Jornada 8--></a>
+                    <div class="celdageneralderecha_container_card">
+                        <a id="nuevo" class="enlace_simple" href="votacion.php?idpartido=7">Votaciones Jornada 8--></a>
+                    </div>
                 </div>
                 <div class="clearfix fila_container_card">
-                    <a id="nuevo2" class="enlace_simple" href="disponibilidad.php">Estoy Disponible?--></a>
+                    <div class="celdageneralderecha_container_card">
+                        <a id="nuevo2" class="enlace_simple" href="disponibilidad.php">Estoy Disponible?--></a>
+                    </div>
+                    <!--<div class="celdageneralizquierda_container_card">
+                        <p class="texttitulo_cuenta_atras">FIN DE CONVOCATORIA</p>
+                        <div id="countdown-3"></div>
+                    </div>-->
                 </div>
                 <div class="clearfix fila_container_card">
-                    <a class="enlace_simple" href="estadisjugadores.php">Datos Jugadores</a>
+                    <div class="celdageneralderecha_container_card">
+                        <a class="enlace_simple" href="estadisjugadores.php">Datos Jugadores</a>
+                    </div>
                 </div>
                 <div class="clearfix fila_container_card">
-                    <a class="enlace_simple" href="votacion.php?idpartido=1">Datos Jornada 1--></a>
+                    <div class="celdageneralderecha_container_card">
+                        <a class="enlace_simple" href="votacion.php?idpartido=1">Datos Jornada 1--></a>
+                    </div>
                 </div>
                 <div class="clearfix fila_container_card">
-                    <a class="enlace_simple" href="votacion.php?idpartido=2">Datos Jornada 2--></a>
+                    <div class="celdageneralderecha_container_card">
+                        <a class="enlace_simple" href="votacion.php?idpartido=2">Datos Jornada 2--></a>
+                    </div>
                 </div>
                 <div class="clearfix fila_container_card">
-                    <a class="enlace_simple" href="votacion.php?idpartido=3">Datos Jornada 3--></a>
+                    <div class="celdageneralderecha_container_card">
+                        <a class="enlace_simple" href="votacion.php?idpartido=3">Datos Jornada 3--></a>
+                    </div>
                 </div>
                 <div class="clearfix fila_container_card">
-                    <a class="enlace_simple" href="votacion.php?idpartido=4">Datos Jornada 4--></a>
+                    <div class="celdageneralderecha_container_card">
+                        <a class="enlace_simple" href="votacion.php?idpartido=4">Datos Jornada 4--></a>
+                    </div>
                 </div>
                 <div class="clearfix fila_container_card">
-                    <a class="enlace_simple" href="votacion.php?idpartido=5">Datos Jornada 5--></a>
+                    <div class="celdageneralderecha_container_card">
+                        <a class="enlace_simple" href="votacion.php?idpartido=5">Datos Jornada 5--></a>
+                    </div>
                 </div>
                 <div class="clearfix fila_container_card">
-                    <a class="enlace_simple" href="votacion.php?idpartido=6">Datos Jornada 6--></a>
+                    <div class="celdageneralderecha_container_card">
+                        <a class="enlace_simple" href="votacion.php?idpartido=6">Datos Jornada 6--></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -387,12 +413,9 @@ function aGetScriptCountdown($fechapartido,$horapartido){
 ?>    
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="assets/js/jquery.timeTo.min.js"></script>
-    <script>
-        date = getRelativeDate('.$dias.','.$hora.','.$minutos.');
+    <script>    
         date = getRelativeDate(<?php echo $dias ?>,<?php echo $hora ?>,<?php echo $minutos ?>);
-    /*echo 'date = getRelativeDate(7,'.$hora.','.$minutos.');';*/
-    /*echo 'document.getElementById("date-str").innerHTML = date.toString();';*/
-
+    
         $("#countdown-3").timeTo({
             timeTo: date,
             displayDays: 2,
@@ -438,7 +461,7 @@ function aGetScriptordenartablas(){
 }
 function aGetSeleccionarDisponibilidad($partido){
     
-    $row_reg = mysql_fetch_assoc($reg);
+    /*$row_reg = mysql_fetch_assoc($reg);*/
 ?>    
     <div class="clearfix card">
         <div class="clearfix title_card">
@@ -452,7 +475,7 @@ function aGetSeleccionarDisponibilidad($partido){
                             <p class="clearfix textinstrucciones_container_card"></br>Selecciona si estaras disponible o no, para el proximo partido.</br></br>AQUI NO HAY DEPENDES. O estas disponible o no lo estas.</br></br>Tienes hasta el viernes a las 15:00 para responder. Si no respondes, se asumirá que no estás disponible</br></br></p>
                         </div>
                     </div>    
-                    <div class="clearfix fila_container_card">
+                    <!--<div class="clearfix fila_container_card">
                         <div class="clearfix celdadisponibilidad_container_card">
                             <p class="clearfix textdisponibilidad_container_card">TIEMPO HASTA FIN DE CONVOCATORIA</p>
                         </div>
@@ -461,7 +484,7 @@ function aGetSeleccionarDisponibilidad($partido){
                         <div class="clearfix celdadisponibilidad_container_card">
                             <div id="countdown-3"></div>
                         </div>
-                    </div>    
+                    </div>-->    
                     <div class="clearfix fila_container_card">
                         <div class="clearfix celdadisponibilidad_container_card">
                             <p class="clearfix textdisponibilidad_container_card">Dia: <span style="font-weight: bold;"><?php echo $partido['fecha']?></span></p>

@@ -75,6 +75,7 @@ if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("",$MM_authorizedUsers,
 }
 ?>
 <?php
+$partido=  getNextPartido(1);
 aGetHeader("Index", "index",TRUE);
 /*if (isset($_GET['insertado'])){
     aGetMensajeError("Dorsal Insertado!!!", "Ya tienes tu dorsal, ahora a comprar la camiseta");
@@ -88,12 +89,15 @@ if (isset($_GET['disponible'])){
 if (isset($_GET['posicion'])){
     aGetMensajeError("Posicion Insertada!!!", "Gracias por Participar también en la encuesta. Atento al Whatsapp para proximas noticias");
 }
-if ($_SESSION['MM_Username']=="jlotito")
+/*if ($_SESSION['MM_Username']=="jlotito")
     $admin=TRUE;
 else
-    $admin=FALSE;
-aGetMain($admin);
+    $admin=FALSE;*/
+aGetMain();
 aGetFooter();
+/*$nuevafecha = strtotime ('-2 day',strtotime ($partido['fecha']));
+$nuevafecha = date ( 'Y-m-j' , $nuevafecha );
+aGetScriptCountdown($nuevafecha,"15:00:00");*/
 aGetScriptanimacioncolor();
 ?>
        	
