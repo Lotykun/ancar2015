@@ -86,16 +86,24 @@ if (isset($_SERVER['QUERY_STRING'])) {
 if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
     
     $from = "no-reply@ancar2015.com";
-    $headers = "From:" . $from;
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    $headers .= "From:" . $from;
     $subject= "Disponibilidad ".$_SESSION['MM_Username']." Jornada ".$idpartido;
+    
+    $message = '<html>'
+            . '<head>'
+            . '<title>DISPONIBILIDAD</title>'
+            . '</head>'
+            . '<body>';
     
     if (isset($_POST['tbutton1'])){
         $button=1;
-        $message  = 'DISPONIBLE' . "\r\n";
+        $message  .= '<p style="color:green">DISPONIBLE</p>';
     }
     else{
         $button=0;
-        $message  = 'NO DISPONIBLE' . "\r\n";
+        $message  .= '<p style="color:red">NO DISPONIBLE</p>';
     }
     $updateSQL = sprintf("UPDATE relacion_jug_disponibilidad SET disponible=%s WHERE idjugador=%s AND idpartido=%s",
         GetSQLValueString($button, "int"),
@@ -107,24 +115,31 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
 
     $disponibilidadResto = getDisponibilidadOtrosJugadores($idpartido, $idjugador);
     $row_reg = mysql_fetch_assoc($disponibilidadResto);
-    $message .= "DISPONIBILIDAD RESTO JUGADORES HASTA EL MOMENTO:" . "\r\n";
+    
+    $message .= "<p>DISPONIBILIDAD RESTO JUGADORES HASTA EL MOMENTO:</p>";
     do{
         /*$message .= $jugador['nombre'].' '.$jugador['apellidos'].', Dorsal: '.$jugador['dorsal'].', Disponible: '.$jugador['disponible']."\r\n";*/
         if (isset($row_reg['disponible'])){
             if ($row_reg['disponible']==1){
                 $disponible="DISPONIBLE";
+                $message .= '<p style="color:green">'.$row_reg['dorsal'].' '.$row_reg['nombre'].' '.$row_reg['apellidos'].', '.$disponible.'</p>';
             }
             else{
                 $disponible="NO DISPONIBLE";
+                $message .= '<p style="color:red">'.$row_reg['dorsal'].' '.$row_reg['nombre'].' '.$row_reg['apellidos'].', '.$disponible.'</p>';
             }
         }
         else{
             $disponible="NULL";
+            $message .= '<p>'.$row_reg['dorsal'].' '.$row_reg['nombre'].' '.$row_reg['apellidos'].', '.$disponible.'</p>';
         }
-        $message .= $row_reg['dorsal'].' '.$row_reg['nombre'].' '.$row_reg['apellidos'].', '.$disponible."\r\n";
+        
     
     } while ($row_reg = mysql_fetch_assoc($disponibilidadResto));
     
+    $message .= '</body>'
+            . '<html>';
+            
     enviarCorreo($subject, $message, $headers);
     
     $updateGoTo = "index.php?disponible=1";
