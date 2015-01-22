@@ -94,6 +94,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
     
     $from = "no-reply@ancar2015.com";
+    $to = "jlotito@opensistemas.com, lotybaink@hotmail.com";
     $headers = "From:" . $from;
     $subject="Votacion ".$_SESSION['MM_Username']." Jornada ".$idpartido;
     $message  = 'Votaciones' . "\r\n";
@@ -128,7 +129,7 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
     mysql_select_db($database_conexion1, $conexion1);
     $Result1 = mysql_query($updateSQL, $conexion1) or die(mysql_error());
     
-    enviarCorreo($subject, $message, $headers);
+    enviarCorreo($to,$subject, $message, $headers);
     $restjugadoresvotar=getFaltanJugvotar($idpartido);
     $updateGoTo = "index.php?votacion=1&quedanjug=".$restjugadoresvotar;
     if (isset($_SERVER['QUERY_STRING'])) {
