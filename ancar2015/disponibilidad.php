@@ -86,6 +86,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
     
     $from = "no-reply@ancar2015.com";
+    $to = "jlotito@opensistemas.com, lotybaink@hotmail.com";
     $headers  = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
     $headers .= "From:" . $from;
@@ -140,7 +141,7 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
     $message .= '</body>'
             . '<html>';
             
-    enviarCorreo($subject, $message, $headers);
+    enviarCorreo($to,$subject, $message, $headers);
     
     $updateGoTo = "index.php?disponible=1";
     if (isset($_SERVER['QUERY_STRING'])) {

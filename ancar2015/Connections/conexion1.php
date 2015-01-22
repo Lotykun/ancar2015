@@ -270,9 +270,9 @@ function getFaltanJugvotar($idpartido){
     
     return $resultado;
 }
-function enviarCorreo($subject,$message,$headers){
+function enviarCorreo($to,$subject,$message,$headers){
         
-    $to = "jlotito@opensistemas.com, lotybaink@hotmail.com";
+    //$to = "jlotito@opensistemas.com, lotybaink@hotmail.com";
     /*$subject = "No es ninguna Broma, LOTY Te vigila";
     $message = "Te Dije que no era una broma";
     $from = "no-reply@ancar2015.com";
