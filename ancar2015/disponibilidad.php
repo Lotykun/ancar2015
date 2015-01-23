@@ -86,7 +86,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
     
     $from = "no-reply@ancar2015.com";
-    $to = "jlotito@opensistemas.com, lotybaink@hotmail.com, jortegavillamor@gmail.com";
+    $to = "jlotito@opensistemas.com, lotybaink@hotmail.com, elothermail@gmail.com";
     $headers  = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
     $headers .= "From:" . $from;
