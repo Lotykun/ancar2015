@@ -342,17 +342,14 @@ function aGetMain($admin){
         <div class="clearfix container_card">
             <div class="clearfix tabla_container_card">
                 <div class="clearfix fila_container_card">
-                    <a class="enlace_simple" href="votacion.php?idpartido=8">Votaciones Jornada 8--></a>
+                    <a class="enlace_simple" href="votacion.php?idpartido=10">Votaciones Jornada 10--></a>
                 </div>
                 <div class="clearfix fila_container_card">
-                    <a id="nuevo" class="enlace_simple" href="votacion.php?idpartido=9">Votaciones Jornada 9--></a>
+                    <a id="nuevo" class="enlace_simple" href="votacion.php?idpartido=11">Votaciones Jornada 11--></a>
                 </div>
                 <div class="clearfix fila_container_card">
-                    <a id="nuevo2" class="enlace_simple" href="votacion.php?idpartido=10">Votaciones Jornada 10--></a>
-                </div>
-                <!--<div class="clearfix fila_container_card">
                     <a id="nuevo2" class="enlace_simple" href="disponibilidad.php">Estoy Disponible?</a>
-                </div>-->
+                </div>
                 <div class="clearfix fila_container_card">
                     <a class="enlace_simple" href="estadisjugadores.php">Datos Jugadores</a>
                 </div>
@@ -376,6 +373,12 @@ function aGetMain($admin){
                 </div>
                 <div class="clearfix fila_container_card">
                     <a class="enlace_simple" href="votacion.php?idpartido=7">Datos Jornada 7--></a>
+                </div>
+                <div class="clearfix fila_container_card">
+                    <a class="enlace_simple" href="votacion.php?idpartido=8">Datos Jornada 8--></a>
+                </div>
+                <div class="clearfix fila_container_card">
+                    <a class="enlace_simple" href="votacion.php?idpartido=9">Datos Jornada 9--></a>
                 </div>
             </div>
         </div>
